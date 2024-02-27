@@ -8,8 +8,6 @@
         curl
         less
         neovim
-        zsh-vi-mode
-        zsh-powerlevel10k
         kitty
     ];
     home.sessionVariables = {
@@ -45,9 +43,9 @@
             enable = true;
             plugins = [
             { name = "romkatv/powerlevel10k"; tags = ["as:theme" "depth:1"]; }
-            { name = "plugins/k"; tags = [from:oh-my-zsh]; }
+            { name = "supercrabtree/k"; tags = [depth:1]; }
             { name = "plugins/git"; tags = [from:oh-my-zsh]; }
-            { name = "plugins/zsh-vi-mode"; tags = [from:oh-my-zsh]; }
+            { name = "jeffreytse/zsh-vi-mode"; tags = [depth:1]; }
             ];
         };
         shellAliases = {
