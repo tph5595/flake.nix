@@ -14,9 +14,9 @@
     ];
     home.sessionVariables = {
         CLICLOLOR = 1;
-        VISUAL="nvim";
-        EDITOR="$VISUAL";
-        BROWSER="firefox";
+        VISUAL = "nvim";
+        EDITOR = "$VISUAL";
+        BROWSER = "firefox";
     };
 
     programs.fzf.enable = true;
@@ -29,15 +29,23 @@
         enableCompletion = true;
         enableAutosuggestions = true;
         syntaxHighlighting.enable = true;
-#        oh-my-zsh = {
-#            enable = true;
-#            plugins = [ "git" "k" "zsh-vi-mode" ];
-#            theme = "robbyrussel";
-#        };
+        #initExtraFirst = ''
+            # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+            # Initialization code that may require console input (password prompts, [y/n]
+            # confirmations, etc.) must go above this block; everything else may go below.
+            #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+                #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+            #fi
+        #'';
+        initExtra = ''
+            # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+            [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+            '';
         zplug = {
             enable = true;
             plugins = [
             { name = "romkatv/powerlevel10k"; tags = ["as:theme" "depth:1"]; }
+            { name = "plugins/k"; tags = [from:oh-my-zsh]; }
             { name = "plugins/git"; tags = [from:oh-my-zsh]; }
             { name = "plugins/zsh-vi-mode"; tags = [from:oh-my-zsh]; }
             ];
@@ -58,4 +66,4 @@
         };
     };
     home.file.".p10k.zsh".source = ./dotfiles/p10k.zsh;
-}
+               }
