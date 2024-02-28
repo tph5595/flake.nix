@@ -5,10 +5,21 @@
     home.packages = with pkgs; [
         ripgrep
         fd
-        curl
+        curlFull
         less
         neovim
         kitty
+        docker
+        docker-compose
+        git 
+        texliveTeTeX 
+        nodejs 
+        python3 
+        cacert 
+        wget 
+        unzip 
+        tree-sitter 
+        gnupg1 
     ];
     home.sessionVariables = {
         CLICLOLOR = 1;
