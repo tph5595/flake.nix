@@ -20,6 +20,28 @@
         unzip 
         tree-sitter 
         gnupg1 
+        aspell
+        automake
+        bison
+        bzip2
+        cmake
+        dvc
+        entr
+        ffmpeg_5-full
+        gdb
+        git-lfs
+        glances
+        htop
+        zenith
+        poetry
+        llvmPackages_17.libllvm
+        gnumake
+        nmap
+        openvpn
+        pandoc
+        subversion
+        terminal-notifier
+        tmux
     ];
     home.sessionVariables = {
         CLICLOLOR = 1;
