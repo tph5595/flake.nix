@@ -57,8 +57,8 @@
             ];
         };
         shellAliases = {
-            nixswitch = "darwin-rebuild switch --flake ~/Desktop/flake.nix/.#";
-            nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
+            nixswitch = "darwin-rebuild switch --flake ~/flake.nix/.#";
+            upug = "pushd ~/flake.nix; nix flake update; nixswitch; popd";
             ls = "ls --color=auto";
             l = "ls -lah";
             c = "clear";
