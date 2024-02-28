@@ -85,6 +85,7 @@
 
             zstyle ':completion:*' menu select
             zstyle ':completion:*:default' list-colors ''${(s.:.)LS_COLORS} "ma=48;5;244;1"
+            zstyle ':completion:*' matcher-list ''\'' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
             '';
         envExtra = ''
         . "$HOME/.cargo/env"
