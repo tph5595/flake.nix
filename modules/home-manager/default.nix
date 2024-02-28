@@ -1,48 +1,58 @@
 { pkgs, ... }: {
-# Don't change this when you change package input. Leave it alone.
+    # Don't change this when you change package input. Leave it alone.
     home.stateVersion = "23.11";
-# specify my home-manager configs
+
     home.packages = with pkgs; [
         ripgrep
-        fd
-        curlFull
-        less
-        neovim
-        kitty
-        docker
-        docker-compose
-        git 
-        texliveTeTeX 
-        nodejs 
-        python3 
-        cacert 
-        wget 
-        unzip 
-        tree-sitter 
-        gnupg1 
-        aspell
-        automake
-        bison
-        bzip2
-        cmake
-        dvc
-        entr
-        ffmpeg_5-full
-        gdb
-        git-lfs
-        glances
-        htop
-        zenith
-        poetry
-        llvmPackages_17.libllvm
-        gnumake
-        nmap
-        openvpn
-        pandoc
-        subversion
-        terminal-notifier
-        tmux
-    ];
+            fd
+            curlFull
+            less
+            neovim
+            kitty
+            docker
+            docker-compose
+            git 
+            texliveTeTeX 
+            nodejs 
+            (python3.withPackages (ps: with ps; [
+                                   pip
+                                   setuptools
+                                   pynvim
+            ]))
+            cacert 
+            wget 
+            unzip 
+            tree-sitter 
+            gnupg1 
+            aspell
+            automake
+            bison
+            bzip2
+            cmake
+            dvc
+            entr
+            ffmpeg_5-full
+            gdb
+            git-lfs
+            glances
+            htop
+            zenith
+            poetry
+            llvmPackages_17.libllvm
+            gnumake
+            nmap
+            openvpn
+            pandoc
+            subversion
+            terminal-notifier
+            tmux
+            go
+            luajitPackages.luarocks
+            php83Packages.composer
+            julia_18-bin
+            pinentry_mac
+            pinentry
+            ];
     home.sessionVariables = {
         CLICLOLOR = 1;
         VISUAL = "nvim";
