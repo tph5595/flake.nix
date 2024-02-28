@@ -41,6 +41,7 @@
             [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
             zstyle ':completion:*' menu select
+            zstyle ':completion:*:default' list-colors ''${(s.:.)LS_COLORS} "ma=48;5;244;1"
             '';
         envExtra = ''
         . "$HOME/.cargo/env"
