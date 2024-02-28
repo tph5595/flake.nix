@@ -39,6 +39,8 @@
         initExtra = ''
             # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
             [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+            zstyle ':completion:*' menu select
             '';
         envExtra = ''
         . "$HOME/.cargo/env"
@@ -50,11 +52,13 @@
             { name = "supercrabtree/k"; tags = [depth:1]; }
             { name = "plugins/git"; tags = [from:oh-my-zsh]; }
             { name = "jeffreytse/zsh-vi-mode"; tags = [depth:1]; }
+            { name ="zsh-users/zsh-syntax-highlighting"; tags = [defer:2]; }
             ];
         };
         shellAliases = {
             nixswitch = "darwin-rebuild switch --flake ~/Desktop/flake.nix/.#";
             nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
+            ls = "ls --color=auto";
             l = "ls -lah";
             c = "clear";
             cl = "c && ls";
