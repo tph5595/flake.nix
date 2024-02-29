@@ -55,6 +55,9 @@
             darktable
             eza
             bat
+            zsh-nix-shell
+            nix-zsh-completions
+            # exabgp
             ];
     home.sessionVariables = {
         CLICLOLOR = 1;
