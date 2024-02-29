@@ -8,11 +8,9 @@
             curlFull
             less
             neovim
-            kitty
             docker
             docker-compose
             git 
-            texliveTeTeX 
             nodejs 
             (python3.withPackages (ps: with ps; [
                                    pip
@@ -24,14 +22,12 @@
             unzip 
             tree-sitter 
             gnupg1 
-            aspell
             automake
             bison
             bzip2
             cmake
             dvc
             entr
-            ffmpeg_5-full
             gdb
             git-lfs
             glances
@@ -40,25 +36,18 @@
             poetry
             llvmPackages_17.libllvm
             gnumake
-            nmap
-            openvpn
             pandoc
             subversion
-            terminal-notifier
             tmux
             go
             luajitPackages.luarocks
             php83Packages.composer
             julia_18-bin
-            pinentry_mac
-            pinentry
-            darktable
             ];
     home.sessionVariables = {
         CLICLOLOR = 1;
         VISUAL = "nvim";
         EDITOR = "$VISUAL";
-        BROWSER = "firefox";
     };
 
     programs.fzf.enable = true;
@@ -113,8 +102,6 @@
             gs = "git status";
             gps = "git push";
             gpl = "git pull";
-            revealjs = "pandoc -t revealjs -s --mathjax -i --variable transition=none --variable controls=false --variable controlsTutorial=false --variable slideNumber=true --variable fragments=false --variable theme=dracula -o ";
-            ssh = "kitty +kitten ssh";
         };
     };
     home.file.".p10k.zsh".source = ./dotfiles/p10k.zsh;
