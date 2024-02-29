@@ -53,6 +53,8 @@
             pinentry_mac
             pinentry
             darktable
+            eza
+            bat
             ];
     home.sessionVariables = {
         CLICLOLOR = 1;
