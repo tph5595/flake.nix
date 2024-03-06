@@ -32,8 +32,7 @@
           ];
       };
       homeConfigurations = {
-          pop = home-manager.lib.homeManagerConfiguration {
-              system = "x86_64-linux";
+          pop-os = home-manager.lib.homeManagerConfiguration {
               pkgs = nixpkgs.legacyPackages."x86_64-linux";
               modules = [
                   ./modules/home-manager

@@ -101,7 +101,6 @@
             ];
         };
         shellAliases = {
-            nixswitch = "darwin-rebuild switch --flake ~/flake.nix/.#";
             upug = "pushd ~/flake.nix; nix flake update; nixswitch; popd";
             ls = "ls --color=auto";
             l = "ls -lah";
