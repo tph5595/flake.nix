@@ -46,7 +46,7 @@
 
       templates = {
           python = {
-              path = ./templates/python;
+              path = ./templates/dev/python;
               description = "Python dev environment template";
           };
 
