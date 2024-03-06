@@ -16,6 +16,7 @@ require("lazy").setup('taylorhenderson.plugins',{
         -- automatically check for config file changes and reload the ui
         enabled = false,
     },
+    lockfile = "~/flake.nix/lazy-lock.json",
     install = {
         -- install missing plugins on startup. This doesn't increase startup time.
         missing = true,
