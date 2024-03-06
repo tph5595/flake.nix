@@ -12,7 +12,7 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, darwin, ... }: {
 
       darwinConfigurations.BestBox = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
@@ -45,10 +45,6 @@
       };
 
       templates = {
-          default = {
-              path = ./templates/default;
-              description = "nix flake new -t github:Mic92/nix-direnv .";
-          };
           python = {
               path = ./templates/dev/python;
               description = "Python dev environment template";
@@ -58,6 +54,11 @@
               path = ./templates/dev/rust;
               description = "Rust dev environment template";
           };
+          bash = {
+              path = ./templates/default;
+              description = "nix flake new -t github:Mic92/nix-direnv .";
+          };
       };
+      defaultTemplate = self.templates.bash;
   };
 }
