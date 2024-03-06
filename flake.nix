@@ -23,7 +23,10 @@
                       home-manager = {
                           useGlobalPkgs = true;
                           useUserPackages = true;
-                          users.taylor.imports = [ ./modules/home-manager ./modules/home-manager/BestBox.nix];
+                          users.taylor.imports = [ 
+                              ./modules/home-manager 
+                              ./modules/home-manager/BestBox.nix
+                          ];
                       };
                   }
           ];
@@ -33,7 +36,8 @@
               system = "x86_64-linux";
               pkgs = nixpkgs.legacyPackages."x86_64-linux";
               modules = [
-                  ./home-manager/pop.nix
+                  ./modules/home-manager
+                  ./modules/home-manager/pop.nix
               ];
           };
       };

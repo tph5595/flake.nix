@@ -2,6 +2,8 @@
     # Don't change this when you change package input. Leave it alone.
     home.stateVersion = "23.11";
 
+    programs.home-manager.enable = true;
+
     home.packages = with pkgs; [
         ripgrep
             fd
