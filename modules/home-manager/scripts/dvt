@@ -1,0 +1,2 @@
+#!/bin/bash
+if [[ $# -eq 0 ]]; then c=default; else c=$1; fi; nix flake init -t \"github:tph5595/flake.nix#$c\" && direnv allow

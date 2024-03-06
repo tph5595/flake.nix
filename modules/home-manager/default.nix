@@ -113,6 +113,7 @@
             gpl = "git pull";
             revealjs = "pandoc -t revealjs -s --mathjax -i --variable transition=none --variable controls=false --variable controlsTutorial=false --variable slideNumber=true --variable fragments=false --variable theme=dracula -o ";
             ssh = "kitty +kitten ssh";
+            dvt = "~/.local/bin/dvt";
         };
     };
     programs = {
@@ -123,6 +124,7 @@
     };
     };
     home.file.".p10k.zsh".source = ./dotfiles/p10k.zsh;
+    home.file.".local/bin/dvt".source = ./scripts/dvt;
 
     home.file."./.config/nvim/" = {
     source = ./dotfiles/nvim;
