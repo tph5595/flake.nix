@@ -8,7 +8,7 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-# Controls system level software and settings including fonts
+    # Controls system level software and settings including fonts
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -40,6 +40,10 @@
                   ./modules/home-manager/pop.nix
               ];
           };
+      };
+      templates.default = {
+          path = ./templates/default;
+          description = "nix flake new -t github:Mic92/nix-direnv .";
       };
   };
 }
