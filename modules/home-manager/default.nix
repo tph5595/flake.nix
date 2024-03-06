@@ -40,30 +40,22 @@
             poetry
             llvmPackages_17.libllvm
             gnumake
-            nmap
-            openvpn
             pandoc
-            subversion
-            terminal-notifier
             tmux
             go
             luajitPackages.luarocks
             php83Packages.composer
             julia_18-bin
-            pinentry_mac
             pinentry
-            darktable
             eza
             bat
             zsh-nix-shell
             nix-zsh-completions
-            # exabgp
             ];
     home.sessionVariables = {
         CLICLOLOR = 1;
         VISUAL = "nvim";
         EDITOR = "$VISUAL";
-        BROWSER = "firefox";
     };
 
     programs.fzf.enable = true;
@@ -100,10 +92,10 @@
             enable = true;
             plugins = [
             { name = "romkatv/powerlevel10k"; tags = ["as:theme" "depth:1"]; }
-            { name = "supercrabtree/k"; tags = [depth:1]; }
-            { name = "plugins/git"; tags = [from:oh-my-zsh]; }
-            { name = "jeffreytse/zsh-vi-mode"; tags = [depth:1]; }
-            { name ="zsh-users/zsh-syntax-highlighting"; tags = [defer:2]; }
+            { name = "supercrabtree/k"; tags = ["depth:1"]; }
+            { name = "plugins/git"; tags = ["from:oh-my-zsh"]; }
+            { name = "jeffreytse/zsh-vi-mode"; tags = ["depth:1"]; }
+            { name ="zsh-users/zsh-syntax-highlighting"; tags = ["defer:2"]; }
             ];
         };
         shellAliases = {

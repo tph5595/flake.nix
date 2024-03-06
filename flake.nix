@@ -8,7 +8,7 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Controls system level software and settings including fonts
+# Controls system level software and settings including fonts
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -23,10 +23,19 @@
                       home-manager = {
                           useGlobalPkgs = true;
                           useUserPackages = true;
-                          users.taylor.imports = [ ./modules/home-manager ];
+                          users.taylor.imports = [ ./modules/home-manager ./modules/home-manager/BestBox.nix];
                       };
                   }
           ];
+      };
+      homeConfigurations = {
+          pop = home-manager.lib.homeManagerConfiguration {
+              system = "x86_64-linux";
+              pkgs = nixpkgs.legacyPackages."x86_64-linux";
+              modules = [
+                  ./home-manager/pop.nix
+              ];
+          };
       };
   };
 }
