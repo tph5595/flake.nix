@@ -31,6 +31,7 @@
                   }
           ];
       };
+      # https://tech.aufomm.com/my-nix-journey-use-nix-with-ubuntu/
       homeConfigurations = {
           pop-os = home-manager.lib.homeManagerConfiguration {
               pkgs = nixpkgs.legacyPackages."x86_64-linux";
