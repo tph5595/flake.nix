@@ -13,6 +13,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
+
       darwinConfigurations.BestBox = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
           pkgs = import nixpkgs { system = "x86_64-darwin"; };
@@ -31,6 +32,7 @@
                   }
           ];
       };
+
       # https://tech.aufomm.com/my-nix-journey-use-nix-with-ubuntu/
       homeConfigurations = {
           pop-os = home-manager.lib.homeManagerConfiguration {
@@ -41,9 +43,21 @@
               ];
           };
       };
-      templates.default = {
-          path = ./templates/default;
-          description = "nix flake new -t github:Mic92/nix-direnv .";
+
+      templates = {
+          default = {
+              path = ./templates/default;
+              description = "nix flake new -t github:Mic92/nix-direnv .";
+          };
+          python-dev = {
+          path = ./templates/dev/python;
+          description = "Python dev environment template for Zero to Nix";
+        };
+
+          rust-dev = {
+              path = ./templates/dev/rust;
+              description = "Rust dev environment template for Zero to Nix";
+          };
       };
   };
 }
