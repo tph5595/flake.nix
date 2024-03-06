@@ -49,14 +49,14 @@
               path = ./templates/default;
               description = "nix flake new -t github:Mic92/nix-direnv .";
           };
-          python-dev = {
+          python = {
               path = ./templates/dev/python;
-              description = "Python dev environment template for Zero to Nix";
+              description = "Python dev environment template";
           };
 
-          rust-dev = {
+          rust = {
               path = ./templates/dev/rust;
-              description = "Rust dev environment template for Zero to Nix";
+              description = "Rust dev environment template";
           };
       };
   };
