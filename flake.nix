@@ -27,7 +27,6 @@
   {
       darwinConfigurations.BestBox = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
-          pkgs = import nixpkgs { system = "x86_64-darwin"; };
           modules = [
               ./modules/darwin
                   home-manager.darwinModules.home-manager
@@ -40,5 +39,6 @@
                   }
           ];
       };
+
   };
 }
