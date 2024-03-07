@@ -58,6 +58,10 @@
               path = ./templates/default;
               description = "nix flake new -t github:Mic92/nix-direnv .";
           };
+          latex = {
+              path = ./templates/dev/latex;
+              description = "Latex dev environment template";
+          };
       };
       defaultTemplate = self.templates.bash;
   };
