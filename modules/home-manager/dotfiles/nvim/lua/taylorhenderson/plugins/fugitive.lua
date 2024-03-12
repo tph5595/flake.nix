@@ -3,7 +3,7 @@ return {
         "tpope/vim-fugitive",
         lazy = true,
         keys = {
-            { "<leader>gs", "", desc = "fugitive toggle" },
+            { "<leader>gg", "", desc = "fugitive toggle" },
         },
         config = function ()
             vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
