@@ -5,7 +5,17 @@
     programs.home-manager.enable = true;
 
     home.packages = with pkgs; [
-        ripgrep
+            # haskell
+            cabal-install 
+            ghc 
+            haskell-language-server
+            # ocaml
+            ocaml 
+            ocamlformat
+            dune_3 
+            ocamlPackages.odoc 
+            # opam
+            ripgrep
             fd
             curlFull
             less
@@ -17,9 +27,9 @@
             texliveTeTeX 
             nodejs 
             (python3.withPackages (ps: with ps; [
-                                   pip
-                                   setuptools
-                                   pynvim
+                pip
+                setuptools
+                pynvim
             ]))
             cacert 
             wget 
