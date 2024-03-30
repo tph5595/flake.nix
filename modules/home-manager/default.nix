@@ -5,9 +5,11 @@
     programs.home-manager.enable = true;
 
     home.packages = with pkgs; [
+    tshark
             # haskell
             cabal-install 
             ghc 
+            #haskellPackages.ghcup
             haskell-language-server
             # ocaml
             ocaml 
