@@ -24,10 +24,15 @@
             vlc
             tidal-hifi
             golden-cheetah
+            # nixgl.auto.nixGLNvidia
             ];
     home.sessionVariables = {
         BROWSER = "firefox";
     };
 
     programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";
+
+    home.sessionVariables = {
+        QT_XCB_GL_INTEGRATION="none";
+    };
 }
