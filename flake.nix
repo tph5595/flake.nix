@@ -12,10 +12,10 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixgl = {
-      url = "github:nix-community/nixGL/489d6b095ab9d289fe11af0219a9ff00fe87c7c5";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixgl = {
+      # url = "github:nix-community/nixGL/489d6b095ab9d289fe11af0219a9ff00fe87c7c5";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
   outputs = inputs@{ self, nixpkgs, home-manager, darwin, ... }: {
 

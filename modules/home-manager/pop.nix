@@ -17,13 +17,13 @@
             discord
             htop
             librewolf
-            steam
+            # steam
             zoom-us
-            davinci-resolve
-            anki
+            # davinci-resolve
+            # anki
             vlc
             tidal-hifi
-            golden-cheetah
+            # golden-cheetah
             # nixgl.auto.nixGLNvidia
             ];
     home.sessionVariables = {
@@ -33,6 +33,6 @@
     programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";
 
     home.sessionVariables = {
-        QT_XCB_GL_INTEGRATION="none";
+        # QT_XCB_GL_INTEGRATION="none";
     };
 }
