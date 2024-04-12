@@ -25,6 +25,7 @@
             tidal-hifi
             # golden-cheetah
             # nixgl.auto.nixGLNvidia
+            R
             ];
     home.sessionVariables = {
         BROWSER = "firefox";
