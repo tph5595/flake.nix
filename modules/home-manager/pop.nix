@@ -23,9 +23,10 @@
             # anki
             vlc
             tidal-hifi
-            # golden-cheetah
             # nixgl.auto.nixGLNvidia
+            # golden-cheetah
             R
+            glibc
             ];
     home.sessionVariables = {
         BROWSER = "firefox";

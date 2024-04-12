@@ -101,6 +101,7 @@
             '';
         envExtra = ''
         . "$HOME/.cargo/env"
+        export R_HOME=$(R RHOME)
         '';
         zplug = {
             enable = true;
