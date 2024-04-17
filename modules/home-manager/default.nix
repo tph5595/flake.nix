@@ -127,6 +127,7 @@
             revealjs = "pandoc -t revealjs -s --mathjax -i --variable transition=none --variable controls=false --variable controlsTutorial=false --variable slideNumber=true --variable fragments=false --variable theme=dracula -o ";
             ssh = "kitty +kitten ssh";
             dvt = "~/.local/bin/dvt";
+            weather = "curl wttr.in";
         };
     };
     programs = {

@@ -6,6 +6,10 @@
 
     nixpkgs.config.allowUnfree = true;
 
+    nixpkgs.config.permittedInsecurePackages = [
+        "electron-25.9.0"
+    ];
+
     home.packages = with pkgs; [
             kitty
             ffmpeg_5-full
@@ -27,6 +31,7 @@
             # golden-cheetah
             R
             glibc
+            obsidian
             ];
     home.sessionVariables = {
         BROWSER = "firefox";
