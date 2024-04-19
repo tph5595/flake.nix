@@ -28,11 +28,11 @@
             git 
             texliveTeTeX 
             nodejs 
-            (python3.withPackages (ps: with ps; [
-                pip
-                setuptools
-                pynvim
-            ]))
+            # (python3.withPackages (ps: with ps; [
+                # pip
+                # setuptools
+                # pynvim
+            # ]))
             cacert 
             wget 
             unzip 

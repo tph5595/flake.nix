@@ -1,4 +1,4 @@
-#!/home/taylor/.virtualenvs/debugpy/bin/python
+#!/home/taylor/flake.nix/modules/home-manager/dotfiles/.virtualenvs/debugpy/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
