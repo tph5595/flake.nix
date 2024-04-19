@@ -32,7 +32,27 @@ return {
             -- nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>
             -- vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
 
-            dapui.setup()
+            dapui.setup({
+                controls = {
+                    icons = {
+                        disconnect = "",
+                        pause = "󰏤",
+                        play = "󰐊",
+                        run_last = "",
+                        step_back = "",
+                        step_into = "󰆹",
+                        step_out = "",
+                        step_over = "",
+                        terminate = ""
+                    }
+                },
+                icons = {
+                    collapsed = "󰐊",
+                    current_frame = "",
+                    expanded = ""
+                },
+            }
+            )
 
             dap.listeners.before.attach.dapui_config = function()
                 dapui.open()
