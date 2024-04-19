@@ -4,6 +4,7 @@ return {
         dependencies = {
             "mfussenegger/nvim-dap",
             "nvim-neotest/nvim-nio",
+            "mfussenegger/nvim-dap-python",
         },
         lazy = true,
         keys = {
@@ -11,9 +12,15 @@ return {
         },
         config = function ()
             local dap, dapui = require("dap"), require("dapui")
+            require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+
             vim.keymap.set("n", '<leader>dc', function() dap.continue() end)
             vim.keymap.set("n", '<leader>dr', function() dap.run_last() end)
             vim.keymap.set("n", '<leader>b', function() dap.toggle_breakpoint() end)
+
+            -- nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
+            -- nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>
+            -- vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
 
             dapui.setup()
 
