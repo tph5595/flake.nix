@@ -58,7 +58,6 @@
             glances
             htop
             zenith
-            poetry
             llvmPackages_17.libllvm
             gnumake
             pandoc
