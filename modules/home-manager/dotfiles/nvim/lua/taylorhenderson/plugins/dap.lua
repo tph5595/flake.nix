@@ -1,3 +1,13 @@
+local dap_on = false
+vim.api.nvim_create_user_command("DapToggle", function()
+	if dap_on then
+        require("dapui").close()
+	else
+        require("dapui").open()
+	end
+	dap_on = not dap_on
+end, { nargs = 0 })
+
 return {
     {
         "rcarriga/nvim-dap-ui",
@@ -8,7 +18,7 @@ return {
         },
         lazy = true,
         keys = {
-            { "<leader>du", "", desc = "dap toggle" },
+            { "<leader>du", "<cmd>DapToggle<cr>", desc = "dap toggle" },
         },
         config = function ()
             local dap, dapui = require("dap"), require("dapui")
