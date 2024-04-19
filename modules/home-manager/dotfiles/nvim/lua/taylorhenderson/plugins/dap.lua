@@ -3,15 +3,20 @@ return {
         "rcarriga/nvim-dap-ui",
         dependencies = {
             "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio",
         },
         lazy = true,
         keys = {
             { "<leader>du", "", desc = "dap toggle" },
         },
         config = function ()
-            require("dapui").setup()
-
             local dap, dapui = require("dap"), require("dapui")
+            vim.keymap.set("n", '<leader>dc', function() dap.continue() end)
+            vim.keymap.set("n", '<leader>dr', function() dap.run_last() end)
+            vim.keymap.set("n", '<leader>b', function() dap.toggle_breakpoint() end)
+
+            dapui.setup()
+
             dap.listeners.before.attach.dapui_config = function()
                 dapui.open()
             end
