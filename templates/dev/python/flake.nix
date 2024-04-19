@@ -31,12 +31,13 @@
             python = pkgs.python311;
           in
           pkgs.mkShell {
+            LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib.outPath}/lib:${pkgs.lib.makeLibraryPath [pkgs.zlib]}:$LD_LIBRARY_PATH";
             # The Nix packages provided in the environment
-            packages = [
+            packages = with pkgs; [
+                poetry
               # Python plus helper tools
               (python.withPackages (ps: with ps; [
-                virtualenv # Virtualenv
-                pip # The pip installer
+                pip
               ]))
             ];
           };
