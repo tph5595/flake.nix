@@ -22,7 +22,6 @@
             curlFull
             less
             neovim
-            kitty
             docker
             docker-compose
             git 
