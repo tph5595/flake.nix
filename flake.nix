@@ -47,6 +47,13 @@
                   ./modules/home-manager/pop.nix
               ];
           };
+          sr3s13 = home-manager.lib.homeManagerConfiguration {
+              pkgs = nixpkgs.legacyPackages."x86_64-linux";
+              modules = [
+                  ./modules/home-manager
+                  ./modules/home-manager/careServer.nix
+              ];
+          };
       };
 
       templates = {
