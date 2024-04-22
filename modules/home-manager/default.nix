@@ -6,62 +6,24 @@
 
     home.packages = with pkgs; [
             tshark
-            # haskell
             cabal-install 
-            ghc 
-            #haskellPackages.ghcup
-            haskell-language-server
-            # ocaml
-            ocaml 
-            ocamlformat
-            dune_3 
-            ocamlPackages.odoc 
-            # opam
             ripgrep
             fd
-            curlFull
-            less
             neovim
-            docker
-            docker-compose
-            git 
-            texliveTeTeX 
             nodejs 
-            # (python3.withPackages (ps: with ps; [
-                # pip
-                # setuptools
-                # pynvim
-            # ]))
             taglib
-            openssl
-            git
             libxml2
             libxslt
             libzip
             zlib
             cacert 
-            wget 
-            unzip 
             tree-sitter 
-            gnupg1 
-            aspell
-            automake
-            bison
-            bzip2
-            cmake
             dvc
             entr
-            ffmpeg_5-full
-            gdb
-            git-lfs
             glances
             htop
             zenith
-            llvmPackages_17.libllvm
-            gnumake
-            pandoc
             tmux
-            go
             luajitPackages.luarocks
             php83Packages.composer
             julia_18-bin
@@ -106,7 +68,6 @@
             '';
         envExtra = ''
         . "$HOME/.cargo/env"
-        export R_HOME=$(R RHOME)
         '';
         zplug = {
             enable = true;
