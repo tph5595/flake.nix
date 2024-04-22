@@ -67,7 +67,7 @@
             zstyle ':completion:*' matcher-list ''\'' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
             '';
         envExtra = ''
-        . "$HOME/.cargo/env"
+            . "$HOME/.cargo/env"
         '';
         zplug = {
             enable = true;
