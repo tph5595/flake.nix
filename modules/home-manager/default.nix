@@ -118,4 +118,8 @@
     source = ./dotfiles/.virtualenvs;
     recursive = true;
   };
+    home.file."./.config/tmux" = {
+    source = ./dotfiles/tmux;
+    recursive = true;
+  };
 }

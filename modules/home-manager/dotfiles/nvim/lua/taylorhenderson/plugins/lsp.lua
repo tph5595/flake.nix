@@ -19,9 +19,7 @@ return {
                     "lua_ls",
                     "rust_analyzer",
                     "texlab",
-                    "hls",
                     "ltex",
-                    "ocamllsp",
                     "pylsp",
                 },
                 handlers = {
