@@ -80,7 +80,7 @@
             ];
         };
         shellAliases = {
-            upug = "pushd ~/flake.nix; nix flake update; nixswitch; popd";
+            upug = "pushd ~/flake.nix; git pull; nix flake update; nixswitch; popd";
             ls = "ls --color=auto";
             l = "ls -lah";
             c = "clear";
