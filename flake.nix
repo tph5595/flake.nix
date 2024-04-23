@@ -28,18 +28,30 @@
           pkgs = import nixpkgs { system = "x86_64-darwin"; };
           modules = [
               ./modules/darwin
-              agenix.nixosModules.default
-                  home-manager.darwinModules.home-manager
-                  {
-                      home-manager = {
-                          useGlobalPkgs = true;
-                          useUserPackages = true;
-                          users.taylor.imports = [ 
-                              ./modules/home-manager 
-                              ./modules/home-manager/BestBox.nix
-                          ];
-                      };
-                  }
+              agenix.darwinModules.age
+              {
+                  age = {
+                    secrets."care_ssh" = {
+                        file = ./secrets/care_ssh.age;
+                        path = "/Users/taylor/test_secret";
+                        owner = "taylor";
+                    };
+                    secretsDir = "/Users/taylor/.agenix/agenix";
+                    secretsMountPoint = "/Users/taylor/.agenix/agenix.d";
+                    identityPaths = [ "/Users/taylor/.ssh/id_ed25519" ];
+                  };
+              }
+              home-manager.darwinModules.home-manager
+              {
+                  home-manager = {
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      users.taylor.imports = [ 
+                          ./modules/home-manager 
+                          ./modules/home-manager/BestBox.nix
+                      ];
+                  };
+              }
           {
               environment.systemPackages = [ agenix.packages."x86_64-darwin".default ];
           }
@@ -53,7 +65,7 @@
               modules = [
                   ./modules/home-manager
                   ./modules/home-manager/pop.nix
-                  agenix.nixosModules.default
+                  agenix.homeManagerModules.age
                   {
                       environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
                   }
@@ -64,7 +76,7 @@
               modules = [
                   ./modules/home-manager
                   ./modules/home-manager/careServer.nix
-                  agenix.nixosModules.default
+                  agenix.homeManagerModules.age
                   {
                       environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
                   }

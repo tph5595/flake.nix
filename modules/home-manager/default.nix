@@ -97,29 +97,29 @@
         };
     };
     programs = {
-    direnv = {
-      enable = true;
-      enableZshIntegration = true; # see note on other shells below
-      nix-direnv.enable = true;
-    };
+        direnv = {
+          enable = true;
+          enableZshIntegration = true;
+          nix-direnv.enable = true;
+        };
     };
     home.file.".p10k.zsh".source = ./dotfiles/p10k.zsh;
     home.file.".local/bin/dvt".source = ./scripts/dvt;
 
     home.file."./.config/nvim/" = {
-    source = ./dotfiles/nvim;
-    recursive = true;
-  };
+        source = ./dotfiles/nvim;
+        recursive = true;
+    };
     home.file."./.config/kitty/" = {
-    source = ./dotfiles/kitty;
-    recursive = true;
-  };
+        source = ./dotfiles/kitty;
+        recursive = true;
+    };
     home.file."./.virtualenvs" = {
-    source = ./dotfiles/.virtualenvs;
-    recursive = true;
-  };
+        source = ./dotfiles/.virtualenvs;
+        recursive = true;
+    };
     home.file."./.config/tmux" = {
-    source = ./dotfiles/tmux;
-    recursive = true;
-  };
+        source = ./dotfiles/tmux;
+        recursive = true;
+    };
 }
