@@ -10,6 +10,9 @@
         "electron-25.9.0"
     ];
 
+    systemd.user.startServices = "sd-switch";
+    #systemd.services.agenix.enable = true;
+
     home.packages = with pkgs; [
             kitty
             ffmpeg_5-full

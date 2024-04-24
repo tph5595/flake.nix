@@ -69,6 +69,9 @@
         envExtra = ''
             . "$HOME/.cargo/env"
             EDITOR=nvim
+
+            # Ensure agenix is running to keep secrets up to date
+            systemctl --user start agenix.service
         '';
         zplug = {
             enable = true;
@@ -95,6 +98,7 @@
             ssh = "kitty +kitten ssh";
             dvt = "~/.local/bin/dvt";
             weather = "curl wttr.in";
+            hush = "systemctl --user start agenix.service";
         };
     };
     programs = {
