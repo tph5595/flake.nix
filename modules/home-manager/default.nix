@@ -36,7 +36,7 @@
     home.sessionVariables = {
         CLICLOLOR = 1;
         VISUAL = "nvim";
-        EDITOR = "$VISUAL";
+        EDITOR = "nvim";
     };
 
     programs.fzf.enable = true;
@@ -68,6 +68,7 @@
             '';
         envExtra = ''
             . "$HOME/.cargo/env"
+            EDITOR=nvim
         '';
         zplug = {
             enable = true;
