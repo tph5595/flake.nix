@@ -55,8 +55,11 @@
                   ./modules/home-manager
                   ./modules/home-manager/pop.nix
                   agenix.homeManagerModules.age
+                  ./secrets/pop.nix
                   {
-                      environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
+                    home.packages = [
+                        agenix.packages."x86_64-linux".default
+                    ];
                   }
               ];
           };
@@ -66,9 +69,6 @@
                   ./modules/home-manager
                   ./modules/home-manager/careServer.nix
                   agenix.homeManagerModules.age
-                  {
-                      environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
-                  }
               ];
           };
       };
