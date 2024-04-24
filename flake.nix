@@ -56,11 +56,6 @@
                   ./modules/home-manager/pop.nix
                   agenix.homeManagerModules.age
                   ./secrets/pop.nix
-                  {
-                    home.packages = [
-                        agenix.packages."x86_64-linux".default
-                    ];
-                  }
               ];
           };
           sr3s13 = home-manager.lib.homeManagerConfiguration {
@@ -69,6 +64,12 @@
                   ./modules/home-manager
                   ./modules/home-manager/careServer.nix
                   agenix.homeManagerModules.age
+                  ./secrets/care.nix
+                  {
+                    home.packages = [
+                        agenix.packages."x86_64-linux".default
+                    ];
+                  }
               ];
           };
       };
