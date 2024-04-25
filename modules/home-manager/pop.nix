@@ -11,7 +11,6 @@
     ];
 
     systemd.user.startServices = "sd-switch";
-    #systemd.services.agenix.enable = true;
 
     home.packages = with pkgs; [
             kitty
@@ -24,14 +23,16 @@
             discord
             htop
             librewolf
-            # steam
+            steam
             zoom-us
-            # davinci-resolve
-            # anki
+            davinci-resolve
+            anki
             vlc
             tidal-hifi
+            # https://github.com/nix-community/nixGL/issues/114
+            # https://discourse.nixos.org/t/fixing-error-attribute-currentsystem-missing-in-flake/22386/6
             # nixgl.auto.nixGLNvidia
-            # golden-cheetah
+            golden-cheetah
             R
             glibc
             obsidian

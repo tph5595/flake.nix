@@ -16,12 +16,12 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nixgl = {
-      # url = "github:nix-community/nixGL/489d6b095ab9d289fe11af0219a9ff00fe87c7c5";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = inputs@{ self, nixpkgs, home-manager, darwin, agenix, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, darwin, agenix, nixgl, ... }: {
 
       darwinConfigurations.BestBox = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
@@ -50,12 +50,22 @@
       # https://tech.aufomm.com/my-nix-journey-use-nix-with-ubuntu/
       homeConfigurations = {
           pop-os = home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages."x86_64-linux";
+              # pkgs = nixpkgs.legacyPackages."x86_64-linux";
+              pkgs = import nixpkgs {
+                  system = "x86_64-linux";
+                  config.allowUnfree = true;
+                  overlays = [ nixgl.overlay ];
+              };
               modules = [
                   ./modules/home-manager
                   ./modules/home-manager/pop.nix
                   agenix.homeManagerModules.age
                   ./secrets/pop.nix
+                  {
+                    home.packages = [
+                        agenix.packages."x86_64-linux".default
+                    ];
+                  }
               ];
           };
           sr3s13 = home-manager.lib.homeManagerConfiguration {
