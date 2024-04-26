@@ -3,7 +3,6 @@
         path = ./dev/python;
         description = "Python dev environment template";
     };
-
     rust = {
         path = ./dev/rust;
         description = "Rust dev environment template";

@@ -84,7 +84,14 @@
             ];
         };
         shellAliases = {
-            upug = "pushd ~/flake.nix; git pull; nix flake update; nixswitch; popd";
+            upug = ''
+            pushd ~/flake.nix
+            git pull
+            nix flake lock --update-input github:tph5595/flake.nix
+            nix flake update
+            nixswitch
+            popd
+            '';
             ls = "ls --color=auto";
             l = "ls -lah";
             c = "clear";
