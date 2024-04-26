@@ -17,10 +17,11 @@ return {
             require("mason-lspconfig").setup {
                 ensure_installed = {
                     "lua_ls",
-                    "rust_analyzer",
+                    -- "rust_analyzer",
                     "texlab",
                     "ltex",
                     "pylsp",
+                    "nil_ls",
                 },
                 handlers = {
                     function (server_name)
