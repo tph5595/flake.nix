@@ -2,7 +2,7 @@
     age = {
         secrets = {
             "care_ssh" = {
-                file = ./care_ssh.age;
+                file = ./files/care_ssh.age;
                 path = "/home/thender8/test_secret";
             };
         };

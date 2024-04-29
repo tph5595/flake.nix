@@ -7,5 +7,5 @@ let
   systems = personal ++ gmucare;
 in
 {
-  "care_ssh.age".publicKeys = systems;
+  "./files/care_ssh.age".publicKeys = systems;
 }
