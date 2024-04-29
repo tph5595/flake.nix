@@ -65,13 +65,15 @@
             zstyle ':completion:*' menu select
             zstyle ':completion:*:default' list-colors ''${(s.:.)LS_COLORS} "ma=48;5;244;1"
             zstyle ':completion:*' matcher-list ''\'' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+            # Ensure agenix is running to keep secrets up to date
+            if [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+                systemctl --user start agenix.service
+            fi
             '';
         envExtra = ''
             . "$HOME/.cargo/env"
             EDITOR=nvim
-
-            # Ensure agenix is running to keep secrets up to date
-            systemctl --user start agenix.service
         '';
         zplug = {
             enable = true;
