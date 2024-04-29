@@ -84,8 +84,12 @@
           };
       };
 
-      templates = 
-      import ./templates;
-      defaultTemplate = self.templates.bash;
+      templates = {
+        full = {
+          path = ./.;
+          description = "Full env setup";
+        };
+      } // import ./templates;
+      defaultTemplate = self.templates.full;
   };
 }
