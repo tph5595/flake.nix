@@ -8,7 +8,7 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Controls system level software and settings including fonts
+    # Controls MacOS system level software and settings including fonts
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -28,8 +28,6 @@
           pkgs = import nixpkgs { system = "x86_64-darwin"; };
           modules = [
               ./modules/darwin
-              agenix.darwinModules.age
-              ./secrets/darwin.nix
               home-manager.darwinModules.home-manager
               {
                   home-manager = {
@@ -41,9 +39,11 @@
                       ];
                   };
               }
-          {
-              environment.systemPackages = [ agenix.packages."x86_64-darwin".default ];
-          }
+              agenix.darwinModules.age
+              ./secrets/darwin.nix
+              {
+                  environment.systemPackages = [ agenix.packages."x86_64-darwin".default ];
+              }
           ];
       };
 
