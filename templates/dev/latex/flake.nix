@@ -14,9 +14,9 @@
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
           packages = with pkgs; [
-            texlive.combined.scheme-full
-            texlab
-            tectonic
+            # texlive.combined.scheme-full
+            texliveFull
+            # texlab
           ];
         };
       });
