@@ -31,4 +31,8 @@
         path = ./dev/haskell;
         description = "haskell dev environment template";
     };
+    go = {
+        path = ./dev/go;
+        description = "go dev environment template";
+    };
 }
