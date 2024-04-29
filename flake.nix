@@ -1,8 +1,8 @@
 {
   description = "Taylor's Nix configuration";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*.tar.gz";
+    nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
 
     # Manages configs links things into your home directory
     home-manager.url = "github:nix-community/home-manager/release-23.11";
