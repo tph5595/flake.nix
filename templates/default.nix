@@ -19,4 +19,16 @@
         path = ./dev/kotlin;
         description = "kotlin dev environment template";
     };
+    gleam = {
+        path = ./dev/gleam;
+        description = "gleam dev environment template";
+    };
+    ocaml = {
+        path = ./dev/ocaml;
+        description = "ocaml dev environment template";
+    };
+    haskell = {
+        path = ./dev/haskell;
+        description = "haskell dev environment template";
+    };
 }
