@@ -10,23 +10,25 @@
             ripgrep
             fd
             neovim
-            nodejs 
             taglib
             libxml2
             libxslt
             libzip
             zlib
             cacert 
-            tree-sitter 
-            dvc
             entr
             glances
             htop
             zenith
             tmux
+            # nvim things
+            tree-sitter 
+            nodejs 
             luajitPackages.luarocks
             php83Packages.composer
             julia_18-bin
+            cargo
+            rustc
             pinentry
             eza
             bat
@@ -86,7 +88,7 @@
             ];
         };
         shellAliases = {
-            upug = "pushd ~/flake.nix; git pull; nix flake lock github:tph5595/flake.nix; nix flake update; nixswitch; popd";
+            upug = "pushd ~/flake.nix; git pull; nix flake lock github:tph5595/flake.nix; nix flake update; nixswitch;nvim --headless \"+Lazy! sync\" +qa; popd";
             ls = "ls --color=auto";
             whatsup = "nix flake lock github:tph5595/flake.nix";
             l = "ls -lah";
