@@ -54,5 +54,9 @@ return {
             require'nvim-web-devicons'.get_icons()
         end
     },
-    -- "ryanoasis/vim-devicons",
+    {
+        "folke/todo-comments.nvim",
+        event = "VeryLazy",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    }
 }

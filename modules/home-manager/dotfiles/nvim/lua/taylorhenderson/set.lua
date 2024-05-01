@@ -36,3 +36,6 @@ vim.opt.showmatch = true
 vim.opt.confirm = true
 vim.opt.autoread = true
 vim.opt.ignorecase = true
+
+-- Disable start up screen
+vim.opt.shortmess:append({ I = true })
