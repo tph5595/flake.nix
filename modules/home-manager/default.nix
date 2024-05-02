@@ -88,7 +88,8 @@
             ];
         };
         shellAliases = {
-            upug = "pushd ~/flake.nix; nix-collect-garbage --delete-older-than 30d; git pull; nix flake lock github:tph5595/flake.nix; nix flake update; nixswitch;nvim --headless \"+Lazy! sync\" +qa; popd";
+            ngc = "nix-collect-garbage --delete-older-than 30d";
+            upug = "pushd ~/flake.nix; git pull; nix flake lock github:tph5595/flake.nix; nix flake update; nixswitch;nvim --headless \"+Lazy! sync\" +qa; popd";
             ls = "ls --color=auto";
             whatsup = "nix flake lock github:tph5595/flake.nix";
             l = "ls -lah";
