@@ -16,3 +16,5 @@ EOF
 
 # For other linux
 nix run nixpkgs#home-manager -- switch --flake .#$HOST
+
+sudo chsh $USER -s .nix-profile/bin/zsh
