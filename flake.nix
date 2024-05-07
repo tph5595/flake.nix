@@ -82,6 +82,20 @@
                   }
               ];
           };
+          sr4s5 = home-manager.lib.homeManagerConfiguration {
+              pkgs = nixpkgs.legacyPackages."x86_64-linux";
+              modules = [
+                  ./modules/home-manager
+                      ./modules/home-manager/careServer.nix
+                      agenix.homeManagerModules.age
+                      ./secrets/care.nix
+                      {
+                          home.packages = [
+                              agenix.packages."x86_64-linux".default
+                          ];
+                      }
+              ];
+          };
       };
 
       templates = {
