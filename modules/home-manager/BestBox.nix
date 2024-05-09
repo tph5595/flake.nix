@@ -1,13 +1,13 @@
 { pkgs, ... }: {
     home.packages = with pkgs; [
-            kitty
+            # General
             ffmpeg_5-full
-            nmap
-            openvpn
-            subversion
             terminal-notifier
             pinentry_mac
             pinentry
+            # GUI
+            kitty
+            openvpn
             darktable
             ];
     home.sessionVariables = {

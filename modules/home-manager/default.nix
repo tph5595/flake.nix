@@ -5,23 +5,29 @@
     programs.home-manager.enable = true;
 
     home.packages = with pkgs; [
-            tshark
             cabal-install 
+            # General
+            glances
+            htop
+            zenith
+            tmux
             ripgrep
             fd
+            entr
+            eza
+            bat
+            zsh-nix-shell
+            nix-zsh-completions
+            # Editor
             neovim
+            # nvim deps
             taglib
             libxml2
             libxslt
             libzip
             zlib
             cacert 
-            entr
-            glances
-            htop
-            zenith
-            tmux
-            # nvim things
+            # tree-sitter deps
             tree-sitter 
             nodejs 
             luajitPackages.luarocks
@@ -30,10 +36,6 @@
             cargo
             rustc
             pinentry
-            eza
-            bat
-            zsh-nix-shell
-            nix-zsh-completions
             ];
     home.sessionVariables = {
         CLICLOLOR = 1;

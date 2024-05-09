@@ -13,15 +13,15 @@
     systemd.user.startServices = "sd-switch";
 
     home.packages = with pkgs; [
-            kitty
+            # General
             ffmpeg_5-full
-            nmap
+            glibc
+            # GUI Apps
+            kitty
             openvpn
-            subversion
             darktable
             bitwig-studio
             discord
-            htop
             librewolf
             steam
             zoom-us
@@ -29,16 +29,15 @@
             anki
             vlc
             tidal-hifi
+            obsidian
             # https://github.com/nix-community/nixGL/issues/114
             # https://discourse.nixos.org/t/fixing-error-attribute-currentsystem-missing-in-flake/22386/6
             # nixgl.auto.nixGLNvidia
             golden-cheetah
             R
-            glibc
-            obsidian
             ];
     home.sessionVariables = {
-        BROWSER = "firefox";
+        BROWSER = "librewolf";
     };
 
     programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";
