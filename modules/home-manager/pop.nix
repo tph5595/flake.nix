@@ -47,4 +47,19 @@
     home.sessionVariables = {
         # QT_XCB_GL_INTEGRATION="none";
     };
+
+    systemd.user.services.dropbox = {
+        Unit = {
+            Description = "My dropbox service";
+        };
+        Install = {
+            WantedBy = [ "default.target" ];
+        };
+        Service = {
+            ExecStart = "${pkgs.writeShellScript "dropbox-runner" ''
+                #!/run/current-system/sw/bin/bash
+                dropbox
+                ''}";
+        };
+    };
 }
