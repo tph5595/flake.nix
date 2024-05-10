@@ -62,10 +62,6 @@
       homeConfigurations = {
           pop-os = home-manager.lib.homeManagerConfiguration {
               pkgs = legacyPackages.x86_64-linux;
-              extraSpecialArgs = {
-                  inherit inputs;
-                  system = "x86_64-linux";
-              };
               modules = [
                   ./modules/home-manager
                   ./modules/home-manager/pop.nix

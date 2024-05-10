@@ -32,15 +32,14 @@
                     obsidian
                     openvpn
                     librewolf
-                    zoom-us
-                    anki
+                    (nixGL anki)
                     # Photo
                     darktable
-                    davinci-resolve
+                    # davinci-resolve
                     ffmpeg_5-full
                     # Gaming
-                    steam
-                    discord
+                    (nixGL steam)
+                    (nixGL discord)
                     # Music
                     vlc
                     tidal-hifi
@@ -49,14 +48,17 @@
                     # Connections
                     dropbox
                     # Workout
+                    # (nixGL golden-cheetah)
+                    R
                     # https://github.com/nix-community/nixGL/issues/114
                     # https://discourse.nixos.org/t/fixing-error-attribute-currentsystem-missing-in-flake/22386/6
-                    # nixgl.auto.nixGLNvidia
-                    golden-cheetah
-                    R
                     nixgl.auto.nixGLNvidia
                     ];
             # }
+            # programs.golden-cheetah = {
+                # enable = true;
+                # package = (nixGL "${pkgs.golden-cheetah}/bin/GoldenCheetah");
+            # };
             home.sessionVariables = {
                 BROWSER = "librewolf";
             };
