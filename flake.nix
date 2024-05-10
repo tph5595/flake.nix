@@ -16,16 +16,26 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixgl = {
+    nixGL = {
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ self, nixpkgs, home-manager, darwin, agenix, nixgl, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, darwin, agenix, nixGL, ... }: rec {
+      legacyPackages = nixpkgs.lib.genAttrs [ "x86_64-linux" "x86_64-darwin" ]
+      (system:
+        import inputs.nixpkgs {
+          inherit system;
+
+          # NOTE: Using `nixpkgs.config` in your NixOS config won't work
+          # Instead, you should set nixpkgs configs here
+          # (https://nixos.org/manual/nixpkgs/stable/#idm140737322551056)
+          config.allowUnfree = true;
+        });
 
       darwinConfigurations.BestBox = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
-          pkgs = import nixpkgs { system = "x86_64-darwin"; };
+          pkgs = legacyPackages.x86_64-darwin;
           modules = [
               ./modules/darwin
               home-manager.darwinModules.home-manager
@@ -51,11 +61,7 @@
       homeConfigurations = {
           pop-os = home-manager.lib.homeManagerConfiguration {
               # pkgs = nixpkgs.legacyPackages."x86_64-linux";
-              pkgs = import nixpkgs {
-                  system = "x86_64-linux";
-                  config.allowUnfree = true;
-                  overlays = [ nixgl.overlay ];
-              };
+              pkgs = legacyPackages.x86_64-linux;
               modules = [
                   ./modules/home-manager
                   ./modules/home-manager/pop.nix
@@ -66,10 +72,14 @@
                         agenix.packages."x86_64-linux".default
                     ];
                   }
+                  ({ ... }: {
+                   nixGLPrefix =
+                       "${nixGL.packages.x86_64-linux.nixGLNvidia}/bin/nixGLNvidia ";
+                   })
               ];
           };
           sr3s13 = home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages."x86_64-linux";
+              pkgs = legacyPackages.x86_64-linux;
               modules = [
                   ./modules/home-manager
                   ./modules/home-manager/careServer.nix
@@ -83,7 +93,7 @@
               ];
           };
           sr4s5 = home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages."x86_64-linux";
+              pkgs = legacyPackages.x86_64-linux;
               modules = [
                   ./modules/home-manager
                       ./modules/home-manager/careServer.nix
@@ -97,7 +107,7 @@
               ];
           };
           sr3s10 = home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages."x86_64-linux";
+              pkgs = legacyPackages.x86_64-linux;
               modules = [
                   ./modules/home-manager
                       ./modules/home-manager/careServer.nix

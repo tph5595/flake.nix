@@ -1,65 +1,88 @@
-{ pkgs, ... }: {
-    home.username = "taylor";
-    home.homeDirectory = "/home/taylor";
+{ config, lib, pkgs, system, ... }: 
+    let nixGL = import ./nixGL.nix { inherit pkgs config system; };
+    in
+    {
+        options.nixGLPrefix = lib.mkOption {
+            type = lib.types.str;
+            default = "";
+            description = ''
+                Will be prepended to commands which require working OpenGL.
 
-    programs.home-manager.enable = true;
+                This needs to be set to the right nixGL package on non-NixOS systems.
+                '';
+        };
+        config = {
+            home.username = "taylor";
+            home.homeDirectory = "/home/taylor";
 
-    nixpkgs.config.allowUnfree = true;
+            programs.home-manager.enable = true;
 
-    nixpkgs.config.permittedInsecurePackages = [
-        "electron-25.9.0"
-    ];
+            nixpkgs.config.allowUnfree = true;
 
-    systemd.user.startServices = "sd-switch";
-
-    home.packages = with pkgs; [
-            # General
-            ffmpeg_5-full
-            glibc
-            # GUI Apps
-            kitty
-            openvpn
-            darktable
-            bitwig-studio
-            discord
-            librewolf
-            steam
-            zoom-us
-            davinci-resolve
-            anki
-            vlc
-            tidal-hifi
-            obsidian
-            # Connections
-            dropbox
-            # https://github.com/nix-community/nixGL/issues/114
-            # https://discourse.nixos.org/t/fixing-error-attribute-currentsystem-missing-in-flake/22386/6
-            # nixgl.auto.nixGLNvidia
-            golden-cheetah
-            R
+            nixpkgs.config.permittedInsecurePackages = [
+                "electron-25.9.0"
             ];
-    home.sessionVariables = {
-        BROWSER = "librewolf";
-    };
+            systemd.user.startServices = "sd-switch";
 
-    programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";
+            home.packages = with pkgs; [
+                    # General
+                    glibc
+                    # GUI Apps
+                    kitty
+                    obsidian
+                    openvpn
+                    librewolf
+                    zoom-us
+                    anki
+                    # Photo
+                    darktable
+                    davinci-resolve
+                    ffmpeg_5-full
+                    # Gaming
+                    steam
+                    discord
+                    # Music
+                    vlc
+                    tidal-hifi
+                    #(nixGL mixxx)
+                    mixxx
+                    bitwig-studio
+                    # Connections
+                    dropbox
+                    # Workout
+                    # https://github.com/nix-community/nixGL/issues/114
+                    # https://discourse.nixos.org/t/fixing-error-attribute-currentsystem-missing-in-flake/22386/6
+                    # nixgl.auto.nixGLNvidia
+                    golden-cheetah
+                    R
+                    ];
+            # }
+            home.sessionVariables = {
+                BROWSER = "librewolf";
+            };
 
-    home.sessionVariables = {
-        # QT_XCB_GL_INTEGRATION="none";
-    };
+            programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";
 
-    systemd.user.services.dropbox = {
-        Unit = {
-            Description = "My dropbox service";
-        };
-        Install = {
-            WantedBy = [ "default.target" ];
-        };
-        Service = {
-            ExecStart = "${pkgs.writeShellScript "dropbox-runner" ''
-                #!/run/current-system/sw/bin/bash
-                dropbox
-                ''}";
-        };
+            home.sessionVariables = {
+                # QT_XCB_GL_INTEGRATION="none";
+            };
+
+            systemd.user.services.dropbox = {
+                Unit = {
+                    Description = "My dropbox service";
+                };
+                Install = {
+                    WantedBy = [ "default.target" ];
+                };
+                Service = {
+                    Type = "exec";
+                    ExecStart = "${pkgs.writeShellScript "dropbox-runner" ''
+                        #!/run/current-system/sw/bin/bash
+                        dropbox
+                        ''}";
+                    Restart = "on-failure";
+                    RestartSec = 2;
+                };
+            };
     };
 }

@@ -122,7 +122,7 @@
         "type": "github"
       }
     },
-    "nixgl": {
+    "nixGL": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
@@ -176,7 +176,7 @@
         "agenix": "agenix",
         "darwin": "darwin_2",
         "home-manager": "home-manager_2",
-        "nixgl": "nixgl",
+        "nixGL": "nixGL",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
