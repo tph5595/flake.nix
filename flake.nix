@@ -31,6 +31,7 @@
           # Instead, you should set nixpkgs configs here
           # (https://nixos.org/manual/nixpkgs/stable/#idm140737322551056)
           config.allowUnfree = true;
+          overlays = [ nixGL.overlay ];
         });
 
       darwinConfigurations.BestBox = darwin.lib.darwinSystem {
@@ -60,8 +61,11 @@
       # https://tech.aufomm.com/my-nix-journey-use-nix-with-ubuntu/
       homeConfigurations = {
           pop-os = home-manager.lib.homeManagerConfiguration {
-              # pkgs = nixpkgs.legacyPackages."x86_64-linux";
               pkgs = legacyPackages.x86_64-linux;
+              extraSpecialArgs = {
+                  inherit inputs;
+                  system = "x86_64-linux";
+              };
               modules = [
                   ./modules/home-manager
                   ./modules/home-manager/pop.nix
@@ -74,7 +78,7 @@
                   }
                   ({ ... }: {
                    nixGLPrefix =
-                       "${nixGL.packages.x86_64-linux.nixGLNvidia}/bin/nixGLNvidia ";
+                       "${legacyPackages.x86_64-linux.nixgl.auto.nixGLNvidia}/bin/nixGLNvidia-550.67 ";
                    })
               ];
           };

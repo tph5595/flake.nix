@@ -1,5 +1,5 @@
-{ config, lib, pkgs, system, ... }: 
-    let nixGL = import ./nixGL.nix { inherit pkgs config system; };
+{ config, lib, pkgs, ... }: 
+    let nixGL = import ./nixGL.nix { inherit pkgs config; };
     in
     {
         options.nixGLPrefix = lib.mkOption {
@@ -44,8 +44,7 @@
                     # Music
                     vlc
                     tidal-hifi
-                    #(nixGL mixxx)
-                    mixxx
+                    (nixGL mixxx)
                     bitwig-studio
                     # Connections
                     dropbox
@@ -55,6 +54,7 @@
                     # nixgl.auto.nixGLNvidia
                     golden-cheetah
                     R
+                    nixgl.auto.nixGLNvidia
                     ];
             # }
             home.sessionVariables = {
