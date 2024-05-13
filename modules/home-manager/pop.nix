@@ -28,6 +28,8 @@
                     # General
                     glibc
                     # GUI Apps
+                    foot
+                    fuzzel
                     kitty
                     obsidian
                     openvpn
@@ -86,5 +88,17 @@
                     RestartSec = 2;
                 };
             };
+        home.file."./.config/foot" = {
+            source = ./dotfiles/foot;
+            recursive = true;
+        };
+        home.file."./.config/sway" = {
+            source = ./dotfiles/sway;
+            recursive = true;
+        };
+        home.file."./.config/fuzzel" = {
+            source = ./dotfiles/fuzzel;
+            recursive = true;
+        };
     };
 }
