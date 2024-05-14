@@ -59,8 +59,9 @@
             bindkey -s ^f "~/.local/bin/tmux-sessionizer\n"
             bindkey "^H" backward-delete-char
             bindkey "^?" backward-delete-char
-            bindkey '^P' history-incremental-search-backward
-            bindkey '^N' history-incremental-search-forward
+            bindkey '^r' history-incremental-search-backward
+            bindkey '^p' up-line-or-search
+            bindkey '^n' down-line-or-search
 
             # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
             # Initialization code that may require console input (password prompts, [y/n]
