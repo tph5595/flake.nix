@@ -79,13 +79,10 @@
                     WantedBy = [ "default.target" ];
                 };
                 Service = {
-                    Type = "exec";
-                    ExecStart = "${pkgs.writeShellScript "dropbox-runner" ''
-                        #!/run/current-system/sw/bin/bash
-                        dropbox
-                        ''}";
-                    Restart = "on-failure";
-                    RestartSec = 2;
+                    # Type = "exec";
+                    ExecStart = "${pkgs.dropbox}/bin/dropbox";
+                    # Restart = "on-failure";
+                    # RestartSec = 2;
                 };
             };
         home.file."./.config/foot" = {
