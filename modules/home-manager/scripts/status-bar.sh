@@ -1,4 +1,4 @@
 #!/bin/sh 
 d=$(date +'%Y-%m-%d %I:%M:%S %p')
-song=$(cmus-song)
+song=$(cmus_song)
 echo "$song\t$d"
