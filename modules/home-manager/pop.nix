@@ -55,7 +55,8 @@
                     R
                     # https://github.com/nix-community/nixGL/issues/114
                     # https://discourse.nixos.org/t/fixing-error-attribute-currentsystem-missing-in-flake/22386/6
-                    nixgl.auto.nixGLNvidia
+                    # nixgl.auto.nixGLNvidia
+                    nixgl.nixGLIntel
                     ];
             # }
             # programs.golden-cheetah = {
