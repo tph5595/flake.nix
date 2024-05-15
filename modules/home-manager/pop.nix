@@ -47,6 +47,7 @@
                     tidal-hifi
                     (nixGL mixxx)
                     bitwig-studio
+                    cmus
                     # Connections
                     dropbox
                     # Workout
