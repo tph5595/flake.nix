@@ -12,6 +12,10 @@
                 '';
         };
         config = {
+            # Pop-os is bad with nvidia drivers 
+            # install software-properties-gtk to change driver
+            # Install manually
+            # sway
             home.username = "taylor";
             home.homeDirectory = "/home/taylor";
 
@@ -30,10 +34,10 @@
                     # GUI Apps
                     foot
                     fuzzel
-                    kitty
+                    # Does not work on wayland for now
+                    # kitty 
                     obsidian
                     openvpn
-                    librewolf
                     (nixGL anki)
                     # Photo
                     darktable
@@ -64,7 +68,7 @@
                 # package = (nixGL "${pkgs.golden-cheetah}/bin/GoldenCheetah");
             # };
             home.sessionVariables = {
-                BROWSER = "librewolf";
+                BROWSER = "firefox";
             };
 
             programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";
