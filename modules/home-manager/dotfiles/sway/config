@@ -81,6 +81,14 @@ input "type:keyboard" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    
+    # Music Controls
+    # bindsym $mod+m exec cmus-remote -u
+    # bindsym $mod+n exec cmus-remote -n
+    # bindsym $mod+p exec cmus-remote -r
+
+    # Firefox
+    bindsym $mod+w exec firefox
 
     # Lock the screen
     bindsym $mod+y exec swaylock -i /home/taylor/Pictures/lock.jpg
