@@ -83,9 +83,9 @@ input "type:keyboard" {
     bindsym $mod+d exec $menu
     
     # Music Controls
-    # bindsym $mod+m exec cmus-remote -u
-    # bindsym $mod+n exec cmus-remote -n
-    # bindsym $mod+p exec cmus-remote -r
+    bindsym $mod+m exec ~/.nix-profile/bin/cmus-remote -u
+    bindsym $mod+n exec ~/.nix-profile/bin/cmus-remote -n
+    bindsym $mod+p exec ~/.nix-profile/bin/cmus-remote -r
 
     # Firefox
     bindsym $mod+w exec firefox
