@@ -62,6 +62,7 @@
             bindkey '^r' history-incremental-search-backward
             bindkey '^p' up-line-or-search
             bindkey '^n' down-line-or-search
+            export PATH=~/.local/bin/:$PATH
 
             # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
             # Initialization code that may require console input (password prompts, [y/n]
@@ -113,8 +114,6 @@
             gpl = "git pull";
             revealjs = "pandoc -t revealjs -s --mathjax -i --variable transition=none --variable controls=false --variable controlsTutorial=false --variable slideNumber=true --variable fragments=false --variable theme=dracula -o ";
             ssh = "kitty +kitten ssh";
-            dvt = "~/.local/bin/dvt";
-            tmux-sessionizer = "~/.local/bin/tmux-sessionizer";
             weather = "curl wttr.in";
             hush = "systemctl --user start agenix.service";
         };
