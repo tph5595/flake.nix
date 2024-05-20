@@ -9,7 +9,9 @@
     };
     nix.extraOptions = ''
         experimental-features = nix-command flakes
+        ssl-cert-file = /Users/hendetp1/root-cert.cer
         '';
+    security.pki.certificateFiles = ["/Users/hendetp1/root-cert.cer"];
     system.keyboard.enableKeyMapping = true;
     # system.keyboard.remapCapsLockToEscape = true;
     fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "Hack" ]; }) ];
