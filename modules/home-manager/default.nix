@@ -83,6 +83,7 @@
             if [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
                 systemctl --user start agenix.service
             fi
+            cd $HOME
             '';
         envExtra = ''
             . "$HOME/.cargo/env"
