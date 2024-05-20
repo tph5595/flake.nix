@@ -128,8 +128,6 @@
     home.file.".p10k.zsh".source = ./dotfiles/p10k.zsh;
     home.file.".local/bin/dvt".source = ./scripts/dvt;
     home.file.".local/bin/tmux-sessionizer".source = ./scripts/tmux-sessionizer;
-    home.file.".local/bin/status_bar.sh".source = ./scripts/status_bar.sh;
-    home.file.".local/bin/cmus_song".source = ./scripts/cmus_song;
 
     home.file."./.config/nvim/" = {
         source = ./dotfiles/nvim;

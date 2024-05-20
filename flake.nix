@@ -57,6 +57,24 @@
               }
           ];
       };
+      darwinConfigurations.slimDev = darwin.lib.darwinSystem {
+          system = "x86_64-darwin";
+          pkgs = legacyPackages.x86_64-darwin;
+          modules = [
+              ./modules/darwin/slimDev.nix
+              home-manager.darwinModules.home-manager
+              {
+                  home-manager = {
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      users.hendetp1.imports = [ 
+                          ./modules/home-manager 
+                          ./modules/home-manager/slimDev.nix
+                      ];
+                  };
+              }
+          ];
+      };
 
       # https://tech.aufomm.com/my-nix-journey-use-nix-with-ubuntu/
       homeConfigurations = {
