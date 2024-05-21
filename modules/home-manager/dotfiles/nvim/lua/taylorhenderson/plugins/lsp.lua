@@ -21,7 +21,6 @@ return {
                     "texlab",
                     "ltex",
                     "pylsp",
-                    "nil_ls",
                 },
                 handlers = {
                     function (server_name)
