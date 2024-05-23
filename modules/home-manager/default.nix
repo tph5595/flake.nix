@@ -32,10 +32,9 @@
             nodejs 
             luajitPackages.luarocks
             php83Packages.composer
-            julia_18-bin
+            julia-bin
             cargo
             rustc
-            pinentry
             ];
     home.sessionVariables = {
         CLICLOLOR = 1;
@@ -51,7 +50,7 @@
     programs.zsh = {
         enable = true;
         enableCompletion = true;
-        enableAutosuggestions = false;
+        autosuggestion.enable = false;
         syntaxHighlighting.enable = true;
         autocd = false;
         initExtraFirst = ''

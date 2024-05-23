@@ -62,6 +62,7 @@
                     # https://discourse.nixos.org/t/fixing-error-attribute-currentsystem-missing-in-flake/22386/6
                     # nixgl.auto.nixGLNvidia
                     nixgl.nixGLIntel
+                    pinentry
                     ];
             # }
             # programs.golden-cheetah = {
