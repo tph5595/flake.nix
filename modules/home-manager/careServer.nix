@@ -7,6 +7,7 @@
     home.packages = with pkgs; [
             subversion
             glibc
+            tshark
             ];
     programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";
     programs.zsh.initExtra = ''
