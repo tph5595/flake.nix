@@ -2,6 +2,7 @@
     home.packages = with pkgs; [
             # GUI
             kitty
+            pinentry_mac
             ];
     home.sessionVariables = {
         BROWSER = "firefox";

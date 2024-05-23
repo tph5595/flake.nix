@@ -8,6 +8,7 @@
             subversion
             glibc
             tshark
+            pinentry
             ];
     programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";
     programs.zsh.initExtra = ''

@@ -4,7 +4,6 @@
             ffmpeg_5-full
             terminal-notifier
             pinentry_mac
-            pinentry
             # GUI
             kitty
             openvpn
