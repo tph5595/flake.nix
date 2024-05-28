@@ -5,7 +5,6 @@
     programs.home-manager.enable = true;
 
     home.packages = with pkgs; [
-            cabal-install 
             # General
             glances
             htop
@@ -32,7 +31,6 @@
             nodejs 
             luajitPackages.luarocks
             php83Packages.composer
-            julia-bin
             cargo
             rustc
             ];
