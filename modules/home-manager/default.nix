@@ -50,7 +50,7 @@
     programs.zsh = {
         enable = true;
         enableCompletion = true;
-        autosuggestion.enable = false;
+        enableAutosuggestions = false;
         syntaxHighlighting.enable = true;
         autocd = false;
         initExtraFirst = ''
