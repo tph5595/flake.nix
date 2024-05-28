@@ -35,14 +35,16 @@
                     foot
                     fuzzel
                     (nixGL teams-for-linux)
+                    (nixGL virtualbox)
                     # Does not work on wayland for now
                     # kitty 
                     obsidian
                     openvpn
                     (nixGL anki)
                     # Photo
-                    darktable
-                    # davinci-resolve
+                    (nixGL darktable)
+                    # (nixGL ansel)
+                    davinci-resolve
                     ffmpeg_5-full
                     # Gaming
                     (nixGL steam)
