@@ -35,7 +35,6 @@
                     foot
                     fuzzel
                     (nixGL teams-for-linux)
-                    (nixGL virtualbox)
                     # Does not work on wayland for now
                     # kitty 
                     obsidian
