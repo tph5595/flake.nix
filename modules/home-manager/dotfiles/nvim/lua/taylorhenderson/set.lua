@@ -39,3 +39,5 @@ vim.opt.ignorecase = true
 
 -- Disable start up screen
 vim.opt.shortmess:append({ I = true })
+
+vim.opt.conceallevel = 1

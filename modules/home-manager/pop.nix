@@ -97,6 +97,7 @@
 
             home.file.".local/bin/status_bar.sh".source = ./scripts/status_bar.sh;
             home.file.".local/bin/cmus_song".source = ./scripts/cmus_song;
+            home.file.".local/bin/createTask".source = ./scripts/createTask;
 
             home.file."./.config/foot" = {
                 source = ./dotfiles/foot;

@@ -87,6 +87,9 @@ input "type:keyboard" {
     bindsym $mod+n exec ~/.nix-profile/bin/cmus-remote -n
     bindsym $mod+p exec ~/.nix-profile/bin/cmus-remote -r
 
+    # Create a new Obsidian task based on template
+    bindsym $mod+t exec ~/.local/bin/createTask
+
     # Firefox
     bindsym $mod+w exec firefox
 
