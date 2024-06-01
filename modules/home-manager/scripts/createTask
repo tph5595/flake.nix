@@ -3,7 +3,6 @@
 pushd ~/Obsidian/Work/Work
 task=$(echo "" | ~/.nix-profile/bin/fuzzel --dmenu --dmenu --prompt="Task: " --lines=1)
 # Ensure task has a valid string
-echo $task > /home/taylor/test_me
 if [ -n "${task}" ]; then
     cp "Templates/Template Task.md" "Tasks/Backlog/$task.md"
     ~/.nix-profile/bin/foot ~/.nix-profile/bin/nvim "Tasks/Backlog/$task.md"
