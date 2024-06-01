@@ -7,6 +7,7 @@
     home.packages = with pkgs; [
             # Nix utils
             nix-output-monitor
+            expect
             # General
             glances
             htop
@@ -101,7 +102,7 @@
         shellAliases = {
             ngc = "nix-collect-garbage --delete-older-than 30d";
             # have to use impure flake because of nixGL hack with currentTime
-            upug = "pushd ~/flake.nix; git pull; nix flake lock github:tph5595/flake.nix |& nom; nix flake update |& nom; nixswitch --impure |& nom;nvim --headless \"+Lazy! sync\" +qa; nvim --headless \"+MasonUpdate\" +qa;popd";
+            upug = "pushd ~/flake.nix; git pull; nix flake lock github:tph5595/flake.nix --log-format internal-json -v |& nom --json; nix flake update --log-format internal-json -v |& nom --json; nixswitch --impure |& nom;nvim --headless \"+Lazy! sync\" +qa; nvim --headless \"+MasonUpdate\" +qa;popd";
             ls = "ls --color=auto";
             whatsup = "nix flake lock github:tph5595/flake.nix";
             l = "ls -lah";
