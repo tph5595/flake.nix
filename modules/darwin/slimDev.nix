@@ -21,6 +21,8 @@
         finder.AppleShowAllExtensions = true;
         NSGlobalDomain.AppleShowAllExtensions = true;
     };
+    # Enable TouchID as valid password source
+    security.pam.enableSudoTouchIdAuth = true;
     # backwards compat; don't change
     system.stateVersion = 4;
     users.users.hendetp1 = {
