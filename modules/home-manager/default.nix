@@ -46,7 +46,11 @@
     programs.fzf.enable = true;
     programs.fzf.enableZshIntegration = true;
 
-    programs.git.enable = true;
+    programs.git = {
+        enable = true;
+        userName  = "Taylor Henderson";
+        userEmail = "tph5595@verizon.net";
+        };
 
     programs.zsh = {
         enable = true;
