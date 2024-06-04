@@ -34,6 +34,21 @@
           overlays = [ nixGL.overlay ];
         });
 
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+	      system = "x86_64-linux";
+	      modules = [ 
+		      ./configuration.nix 
+		      home-manager.nixosModules.home-manager
+			  {
+			    home-manager.useGlobalPkgs = true;
+			    home-manager.useUserPackages = true;
+			    home-manager.users.taylor.imports = [
+				    ./modules/home-manager
+                    ./modules/home-manager/desktop.nix
+			    ];
+			  }
+		      ];
+      };
       darwinConfigurations.BestBox = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
           pkgs = legacyPackages.x86_64-darwin;
