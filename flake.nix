@@ -35,37 +35,41 @@
         });
 
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-	      system = "x86_64-linux";
-	      modules = [ 
-		      ./configuration.nix 
-		      home-manager.nixosModules.home-manager
-			  {
-			    home-manager.useGlobalPkgs = true;
-			    home-manager.useUserPackages = true;
-			    home-manager.users.taylor.imports = [
-				    ./modules/home-manager
-                    ./modules/home-manager/desktop.nix
-			    ];
-			  }
-		      ];
+          system = "x86_64-linux";
+          modules = [ 
+              ./configuration.nix 
+              agenix.nixosModules.age
+              home-manager.nixosModules.home-manager
+              {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.users.taylor.imports = [
+                      ./modules/home-manager
+                      ./modules/home-manager/desktop.nix
+                  ];
+              }
+              {
+                  environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
+              }
+          ];
       };
       darwinConfigurations.BestBox = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
           pkgs = legacyPackages.x86_64-darwin;
           modules = [
               ./modules/darwin
-              home-manager.darwinModules.home-manager
-              {
-                  home-manager = {
-                      useGlobalPkgs = true;
-                      useUserPackages = true;
-                      users.taylor.imports = [ 
-                          ./modules/home-manager 
-                          ./modules/home-manager/BestBox.nix
-                      ];
-                  };
-              }
-              agenix.darwinModules.age
+                  home-manager.darwinModules.home-manager
+                  {
+                      home-manager = {
+                          useGlobalPkgs = true;
+                          useUserPackages = true;
+                          users.taylor.imports = [ 
+                              ./modules/home-manager 
+                              ./modules/home-manager/BestBox.nix
+                          ];
+                      };
+                  }
+          agenix.darwinModules.age
               ./secrets/darwin.nix
               {
                   environment.systemPackages = [ agenix.packages."x86_64-darwin".default ];
@@ -77,17 +81,17 @@
           pkgs = legacyPackages.x86_64-darwin;
           modules = [
               ./modules/darwin/slimDev.nix
-              home-manager.darwinModules.home-manager
-              {
-                  home-manager = {
-                      useGlobalPkgs = true;
-                      useUserPackages = true;
-                      users.hendetp1.imports = [ 
-                          ./modules/home-manager 
-                          ./modules/home-manager/slimDev.nix
-                      ];
-                  };
-              }
+                  home-manager.darwinModules.home-manager
+                  {
+                      home-manager = {
+                          useGlobalPkgs = true;
+                          useUserPackages = true;
+                          users.hendetp1.imports = [ 
+                              ./modules/home-manager 
+                              ./modules/home-manager/slimDev.nix
+                          ];
+                      };
+                  }
           ];
       };
 

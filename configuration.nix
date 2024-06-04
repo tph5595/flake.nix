@@ -49,14 +49,34 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Enable the gnome-keyring secrets vault. 
-  # Will be exposed through DBus to programs willing to store secrets.
-  services.gnome.gnome-keyring.enable = true;
+# https://gist.github.com/mschwaig/195fe93ed85dea7aaceaf8e1fc6c0e99
+# configuring sway itself (assmung a display manager starts it)
+  systemd.user.targets.sway-session = {
+    description = "Sway compositor session";
+    documentation = [ "man:systemd.special(7)" ];
+    bindsTo = [ "graphical-session.target" ];
+    wants = [ "graphical-session-pre.target" ];
+    after = [ "graphical-session-pre.target" ];
+  };
 
-  # enable sway window manager
+  services.displayManager.defaultSession = "sway";
+ #  services.xserver.displayManager.sddm.enable = true;
+  services.libinput.enable = true;
+
   programs.sway = {
     enable = true;
-    wrapperFeatures.gtk = true;
+    extraPackages = with pkgs; [
+      swaylock
+      swayidle
+      xwayland
+    ];
+    extraSessionCommands = ''
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND=1
+    '';
   };
 
   # Configure keymap in X11
@@ -91,12 +111,13 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  programs.zsh.enable = true;
   users.users.taylor = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     description = "taylor";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-	neovim
     #  thunderbird
     ];
   };
@@ -112,10 +133,6 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    mako # notification system developed by swaywm maintainer
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

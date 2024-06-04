@@ -84,13 +84,12 @@
             zstyle ':completion:*' matcher-list ''\'' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
             # Ensure agenix is running to keep secrets up to date
-            if [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-                systemctl --user start agenix.service
-            fi
+            # if [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+                # systemctl --user start agenix.service
+            # fi
             cd $HOME
             '';
         envExtra = ''
-            . "$HOME/.cargo/env"
             EDITOR=nvim
         '';
         zplug = {
