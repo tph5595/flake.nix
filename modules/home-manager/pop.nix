@@ -55,7 +55,7 @@
                     bitwig-studio
                     cmus
                     # Connections
-                    dropbox
+                    # dropbox
                     # Workout
                     (nixGL golden-cheetah)
                     R
