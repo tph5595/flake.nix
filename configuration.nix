@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -130,10 +130,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-  ];
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -147,6 +147,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.tailscale.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -161,5 +162,35 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+
+
+  environment.systemPackages = with pkgs; [
+    # dropbox - we don't need this in the environment. systemd unit pulls it in
+    dropbox-cli
+  ];
+
+  networking.firewall = {
+    allowedTCPPorts = [ 17500 ];
+    allowedUDPPorts = [ 17500 ];
+  };
+
+  systemd.user.services.dropbox = {
+    description = "Dropbox";
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "network.target" ];
+    environment = {
+      QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+      QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
+    };
+    serviceConfig = {
+      ExecStart = "${lib.getBin pkgs.dropbox}/bin/dropbox";
+      ExecReload = "${lib.getBin pkgs.coreutils}/bin/kill -HUP $MAINPID";
+      KillMode = "control-group"; # upstream recommends process
+      Restart = "always";
+      PrivateTmp = true;
+      ProtectSystem = "full";
+      Nice = 10;
+    };
+  };
 
 }

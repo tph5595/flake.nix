@@ -50,7 +50,12 @@
         enable = true;
         userName  = "Taylor Henderson";
         userEmail = "tph5595@verizon.net";
+        extraConfig = {
+            credential.helper = "${
+                pkgs.git.override { withLibsecret = true; }
+            }/bin/git-credential-libsecret";
         };
+    };
 
     programs.zsh = {
         enable = true;
