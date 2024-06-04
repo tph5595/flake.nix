@@ -34,7 +34,7 @@
           overlays = [ nixGL.overlay ];
         });
 
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
 	      system = "x86_64-linux";
 	      modules = [ 
 		      ./configuration.nix 

@@ -16,6 +16,7 @@
             home.packages = with pkgs; [
                     # General
                     glibc
+                    zig
                     # GUI Apps
                     foot
                     fuzzel
