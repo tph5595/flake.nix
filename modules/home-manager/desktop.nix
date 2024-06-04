@@ -22,7 +22,7 @@
                     fuzzel
                     teams-for-linux
                     # Does not work on wayland for now
-                    # kitty 
+                    kitty 
                     obsidian
                     openvpn
                     anki
