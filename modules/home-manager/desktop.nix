@@ -82,6 +82,10 @@
                 source = ./dotfiles/sway;
                 recursive = true;
             };
+            home.file."./.config/hypr/" = {
+                source = ./dotfiles/hypr;
+                recursive = true;
+            };
             home.file."./.config/fuzzel" = {
                 source = ./dotfiles/fuzzel;
                 recursive = true;
