@@ -110,7 +110,7 @@
         shellAliases = {
             ngc = "nix-collect-garbage --delete-older-than 30d";
             # have to use impure flake because of nixGL hack with currentTime
-            upug = "pushd ~/flake.nix; git pull; nix flake lock github:tph5595/flake.nix --log-format internal-json -v |& nom --json; nix flake update --log-format internal-json -v |& nom --json; nixswitch --impure |& nom;nvim --headless \"+Lazy! sync\" +qa; nvim --headless \"+MasonUpdate\" +qa;popd";
+            upug = "sudo echo ''; pushd ~/flake.nix; git pull; nix flake lock github:tph5595/flake.nix --log-format internal-json -v |& nom --json; nix flake update --log-format internal-json -v |& nom --json; nixswitch --impure |& nom;nvim --headless \"+Lazy! sync\" +qa; nvim --headless \"+MasonUpdate\" +qa;popd";
             ls = "ls --color=auto";
             whatsup = "nix flake lock github:tph5595/flake.nix";
             l = "ls -lah";
