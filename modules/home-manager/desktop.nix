@@ -28,7 +28,6 @@
                     anki
                     # Photo
                     darktable
-                    # (nixGL ansel)
                     davinci-resolve
                     ffmpeg_5-full
                     # Gaming
@@ -40,10 +39,9 @@
                     mixxx
                     bitwig-studio
                     cmus
-                    # Connections
-                    # dropbox
                     # Workout
-                    golden-cheetah
+                    # golden-cheetah
+                    appimage-run
                     R
                     pinentry
                     ];
