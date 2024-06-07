@@ -30,6 +30,7 @@
                     darktable
                     davinci-resolve
                     ffmpeg_5-full
+                    feh
                     # Gaming
                     steam
                     discord
