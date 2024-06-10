@@ -1,4 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: 
+
+let 
+    dvt = import ./scripts/dvt.nix { inherit pkgs; };
+in 
+{
     # Don't change this when you change package input. Leave it alone.
     home.stateVersion = "23.11";
 
@@ -36,6 +41,8 @@
             php83Packages.composer
             cargo
             rustc
+            # My scripts
+            dvt
             ];
     home.sessionVariables = {
         CLICLOLOR = 1;
@@ -135,7 +142,7 @@
         };
     };
     home.file.".p10k.zsh".source = ./dotfiles/p10k.zsh;
-    home.file.".local/bin/dvt".source = ./scripts/dvt;
+    # home.file.".local/bin/dvt".source = ./scripts/dvt;
     home.file.".local/bin/tmux-sessionizer".source = ./scripts/tmux-sessionizer;
 
     home.file."./.config/nvim/" = {
