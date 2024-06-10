@@ -21,6 +21,7 @@
                     foot
                     fuzzel
                     teams-for-linux
+                    zoom-us
                     # Does not work on wayland for now
                     kitty 
                     obsidian
