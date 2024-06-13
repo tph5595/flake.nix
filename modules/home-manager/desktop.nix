@@ -22,6 +22,7 @@
                     fuzzel
                     teams-for-linux
                     zoom-us
+                    signal-desktop
                     # Does not work on wayland for now
                     kitty 
                     obsidian
