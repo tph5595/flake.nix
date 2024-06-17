@@ -14,7 +14,7 @@
     security.pki.certificateFiles = ["/Users/hendetp1/root-cert.cer"];
     system.keyboard.enableKeyMapping = true;
     # system.keyboard.remapCapsLockToEscape = true;
-    fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "Hack" ]; }) ];
+    fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Hack" ]; }) ];
     services.nix-daemon.enable = true;
     system.defaults = {
         dock.autohide = true;
