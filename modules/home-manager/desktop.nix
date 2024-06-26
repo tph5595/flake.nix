@@ -17,6 +17,7 @@
                     # General
                     glibc
                     zig
+                    wl-clipboard
                     # GUI Apps
                     foot
                     fuzzel
