@@ -34,10 +34,12 @@ in
             libzip
             zlib
             cacert 
+            wget
+            unzip
             # tree-sitter deps
             tree-sitter 
             nodejs 
-            luajitPackages.luarocks
+            (lua5_1.withPackages (ps: with ps; [ luarocks ]))
             php83Packages.composer
             cargo
             rustc
