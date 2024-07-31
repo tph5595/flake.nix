@@ -1,12 +1,18 @@
-{ config, lib, pkgs, ... }: 
+{ config, lib, pkgs, pkgs-unstable, ... }: 
 {
         config = {
+            nixpkgs.overlays = [
+                (self: super: {
+                 zoom-us = pkgs-unstable.zoom-us;
+                 })
+            ];
             home.username = "taylor";
             home.homeDirectory = "/home/taylor";
 
             programs.home-manager.enable = true;
 
             nixpkgs.config.allowUnfree = true;
+
 
             nixpkgs.config.permittedInsecurePackages = [
                 "electron-25.9.0"

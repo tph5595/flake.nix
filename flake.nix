@@ -21,7 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ self, nixpkgs, home-manager, darwin, agenix, nixGL, ... }: rec {
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, nixGL, ... }: rec {
       legacyPackages = nixpkgs.lib.genAttrs [ "x86_64-linux" "x86_64-darwin" ]
       (system:
         import inputs.nixpkgs {
@@ -34,15 +34,21 @@
           overlays = [ nixGL.overlay ];
         });
 
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           modules = [ 
               ./configuration.nix 
               agenix.nixosModules.age
               home-manager.nixosModules.home-manager
               {
-                  home-manager.useGlobalPkgs = true;
+                  home-manager.useGlobalPkgs = false;
                   home-manager.useUserPackages = true;
+                  home-manager.extraSpecialArgs = {
+                      pkgs-unstable = import nixpkgs-unstable {
+                          inherit system;
+                          config.allowUnfree = true;
+                      };
+                  };
                   home-manager.users.taylor.imports = [
                       ./modules/home-manager
                       ./modules/home-manager/desktop.nix
