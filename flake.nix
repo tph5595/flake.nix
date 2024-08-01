@@ -55,11 +55,11 @@
                   ];
               }
               {
-                  environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
+                  environment.systemPackages = [ agenix.packages.${system}.default ];
               }
           ];
       };
-      darwinConfigurations.BestBox = darwin.lib.darwinSystem {
+      darwinConfigurations.BestBox = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           pkgs = legacyPackages.x86_64-darwin;
           modules = [
@@ -75,14 +75,14 @@
                           ];
                       };
                   }
-          agenix.darwinModules.age
+              agenix.darwinModules.age
               ./secrets/darwin.nix
               {
-                  environment.systemPackages = [ agenix.packages."x86_64-darwin".default ];
+                  environment.systemPackages = [ agenix.packages.${system}.default ];
               }
           ];
       };
-      darwinConfigurations.slimDev = darwin.lib.darwinSystem {
+      darwinConfigurations.slimDev = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           pkgs = legacyPackages.x86_64-darwin;
           modules = [
