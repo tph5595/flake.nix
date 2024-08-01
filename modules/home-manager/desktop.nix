@@ -1,7 +1,8 @@
-{ config, lib, pkgs, pkgs-unstable, ... }: 
+{ config, lib, pkgs, ... }: 
 {
         imports = [
             ./conference.nix
+            ./kitty.nix
         ];
 
         config = {
@@ -27,7 +28,6 @@
                     fuzzel
                     signal-desktop
                     # Does not work on wayland for now
-                    kitty 
                     obsidian
                     openvpn
                     anki

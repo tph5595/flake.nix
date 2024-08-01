@@ -36,7 +36,6 @@
                     fuzzel
                     (nixGL teams-for-linux)
                     # Does not work on wayland for now
-                    # kitty 
                     obsidian
                     openvpn
                     (nixGL anki)

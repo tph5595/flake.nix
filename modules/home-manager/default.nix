@@ -42,10 +42,6 @@ in
           nix-direnv.enable = true;
         };
     };
-    home.file."./.config/kitty/" = {
-        source = ./dotfiles/kitty;
-        recursive = true;
-    };
     home.file."./.virtualenvs" = {
         source = ./dotfiles/.virtualenvs;
         recursive = true;
