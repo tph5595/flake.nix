@@ -63,7 +63,7 @@
           system = "x86_64-darwin";
           pkgs = legacyPackages.x86_64-darwin;
           modules = [
-              ./modules/darwin
+              ./hosts/BestBox
                   home-manager.darwinModules.home-manager
                   {
                       home-manager = {
@@ -86,7 +86,7 @@
           system = "x86_64-darwin";
           pkgs = legacyPackages.x86_64-darwin;
           modules = [
-              ./modules/darwin/slimDev.nix
+              ./hosts/slimDev
                   home-manager.darwinModules.home-manager
                   {
                       home-manager = {
