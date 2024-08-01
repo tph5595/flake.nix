@@ -37,7 +37,7 @@
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           modules = [ 
-              ./configuration.nix 
+              ./hosts/desktop
               agenix.nixosModules.age
               home-manager.nixosModules.home-manager
               {
