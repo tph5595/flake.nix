@@ -1,14 +1,11 @@
 { pkgs, ... }: 
-
-let 
-    dvt = import ./scripts/dvt.nix { inherit pkgs; };
-in 
 {
     imports = [
         ./git.nix
         ./zsh.nix
         ./nvim.nix
         ./tmux.nix
+        ./direnv.nix
     ];
     # Don't change this when you change package input. Leave it alone.
     home.stateVersion = "23.11";
@@ -28,20 +25,11 @@ in
             entr
             eza
             bat
-            # My scripts
-            dvt
             ];
     home.sessionVariables = {
         CLICLOLOR = 1;
     };
 
-    programs = {
-        direnv = {
-          enable = true;
-          enableZshIntegration = true;
-          nix-direnv.enable = true;
-        };
-    };
     home.file."./.virtualenvs" = {
         source = ./dotfiles/.virtualenvs;
         recursive = true;

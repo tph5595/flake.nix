@@ -3,6 +3,8 @@
         imports = [
             ./conference.nix
             ./kitty.nix
+            ./wayland_apps.nix
+            ./dropbox.nix
         ];
 
         config = {
@@ -22,12 +24,7 @@
                     # General
                     glibc
                     zig
-                    wl-clipboard
                     # GUI Apps
-                    foot
-                    fuzzel
-                    signal-desktop
-                    # Does not work on wayland for now
                     obsidian
                     openvpn
                     anki
@@ -58,45 +55,6 @@
 
             programs.zsh.shellAliases.nixswitch = "sudo nixos-rebuild switch --flake ~/flake.nix/.#$HOST";
 
-            systemd.user.services.dropbox = {
-                Unit = {
-                    Description = "My dropbox service";
-                };
-                Install = {
-                    WantedBy = [ "default.target" ];
-                };
-                Service = {
-                    # Type = "exec";
-                    ExecStart = "${pkgs.dropbox}/bin/dropbox";
-                    # Restart = "on-failure";
-                    # RestartSec = 2;
-                };
-            };
-
-            home.file.".local/bin/status_bar.sh".source = ./scripts/status_bar.sh;
-            home.file.".local/bin/cmus_song".source = ./scripts/cmus_song;
-            home.file.".local/bin/createTask".source = ./scripts/createTask;
             home.file."Pictures/bg.png".source = ./Pictures/bg.png;
-
-            home.file."./.config/foot" = {
-                source = ./dotfiles/foot;
-                recursive = true;
-            };
-            home.file."./.config/sway" = {
-                source = ./dotfiles/sway;
-                recursive = true;
-            };
-            home.file."./.config/hypr/" = {
-                source = ./dotfiles/hypr;
-                recursive = true;
-            };
-            home.file."./.config/waybar/" = {
-                source = ./dotfiles/waybar;
-                recursive = true;
-            };
-            home.file."./.config/fuzzel" = {
-                source = ./dotfiles/fuzzel;
-                recursive = true;
-            };
         };
 }
