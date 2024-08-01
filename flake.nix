@@ -50,8 +50,8 @@
                       };
                   };
                   home-manager.users.taylor.imports = [
-                      ./modules/home-manager
-                      ./modules/home-manager/desktop.nix
+                      ./home-manager
+                      ./home-manager/desktop.nix
                   ];
               }
               {
@@ -70,8 +70,8 @@
                           useGlobalPkgs = true;
                           useUserPackages = true;
                           users.taylor.imports = [ 
-                              ./modules/home-manager 
-                              ./modules/home-manager/BestBox.nix
+                              ./home-manager 
+                              ./home-manager/BestBox.nix
                           ];
                       };
                   }
@@ -93,8 +93,8 @@
                           useGlobalPkgs = true;
                           useUserPackages = true;
                           users.hendetp1.imports = [ 
-                              ./modules/home-manager 
-                              ./modules/home-manager/slimDev.nix
+                              ./home-manager 
+                              ./home-manager/slimDev.nix
                           ];
                       };
                   }
@@ -106,8 +106,8 @@
           pop-os = home-manager.lib.homeManagerConfiguration {
               pkgs = legacyPackages.x86_64-linux;
               modules = [
-                  ./modules/home-manager
-                  ./modules/home-manager/pop.nix
+                  ./home-manager
+                  ./home-manager/pop.nix
                   agenix.homeManagerModules.age
                   ./secrets/pop.nix
                   {
@@ -125,8 +125,8 @@
           sr3s13 = home-manager.lib.homeManagerConfiguration {
               pkgs = legacyPackages.x86_64-linux;
               modules = [
-                  ./modules/home-manager
-                  ./modules/home-manager/careServer.nix
+                  ./home-manager
+                  ./home-manager/careServer.nix
                   agenix.homeManagerModules.age
                   ./secrets/care.nix
                   {
@@ -139,8 +139,8 @@
           sr4s5 = home-manager.lib.homeManagerConfiguration {
               pkgs = legacyPackages.x86_64-linux;
               modules = [
-                  ./modules/home-manager
-                      ./modules/home-manager/careServer.nix
+                  ./home-manager
+                      ./home-manager/careServer.nix
                       agenix.homeManagerModules.age
                       ./secrets/care.nix
                       {
@@ -153,8 +153,8 @@
           sr3s10 = home-manager.lib.homeManagerConfiguration {
               pkgs = legacyPackages.x86_64-linux;
               modules = [
-                  ./modules/home-manager
-                      ./modules/home-manager/careServer.nix
+                  ./home-manager
+                      ./home-manager/careServer.nix
                       agenix.homeManagerModules.age
                       ./secrets/care.nix
                       {
