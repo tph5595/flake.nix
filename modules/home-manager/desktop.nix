@@ -1,18 +1,16 @@
 { config, lib, pkgs, pkgs-unstable, ... }: 
 {
+        imports = [
+            ./conference.nix
+        ];
+
         config = {
-            nixpkgs.overlays = [
-                (self: super: {
-                 zoom-us = pkgs-unstable.zoom-us;
-                 })
-            ];
             home.username = "taylor";
             home.homeDirectory = "/home/taylor";
 
             programs.home-manager.enable = true;
 
             nixpkgs.config.allowUnfree = true;
-
 
             nixpkgs.config.permittedInsecurePackages = [
                 "electron-25.9.0"
@@ -27,8 +25,6 @@
                     # GUI Apps
                     foot
                     fuzzel
-                    teams-for-linux
-                    zoom-us
                     signal-desktop
                     # Does not work on wayland for now
                     kitty 

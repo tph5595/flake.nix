@@ -1,5 +1,9 @@
 { pkgs, lib, config, ... }: 
 {
+    home.packages = with pkgs; [
+        zsh-nix-shell
+        nix-zsh-completions
+    ];
     programs.zsh = {
         enable = true;
         enableCompletion = true;
@@ -70,4 +74,5 @@
             hush = "systemctl --user start agenix.service";
         };
     };
+    home.file.".p10k.zsh".source = ./dotfiles/p10k.zsh;
 }
