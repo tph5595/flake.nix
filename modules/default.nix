@@ -6,5 +6,6 @@
       ./dropbox.nix
       ./hyprland.nix
       ./sway.nix
+      ./docker.nix
     ];
 }

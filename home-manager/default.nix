@@ -25,6 +25,7 @@
             entr
             eza
             bat
+            just
             ];
     home.sessionVariables = {
         CLICLOLOR = 1;
