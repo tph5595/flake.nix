@@ -94,21 +94,21 @@
                 };
             };
 
-            home.file.".local/bin/status_bar.sh".source = ./scripts/status_bar.sh;
-            home.file.".local/bin/cmus_song".source = ./scripts/cmus_song;
-            home.file.".local/bin/createTask".source = ./scripts/createTask;
+            home.file.".local/bin/status_bar.sh".source = ../bin/status_bar.sh;
+            home.file.".local/bin/cmus_song".source = ../bin/cmus_song;
+            home.file.".local/bin/createTask".source = ../bin/createTask;
             home.file."Pictures/bg.png".source = ./Pictures/bg.png;
 
             home.file."./.config/foot" = {
-                source = ./dotfiles/foot;
+                source = ../config/foot;
                 recursive = true;
             };
             home.file."./.config/sway" = {
-                source = ./dotfiles/sway;
+                source = ../config/sway;
                 recursive = true;
             };
             home.file."./.config/fuzzel" = {
-                source = ./dotfiles/fuzzel;
+                source = ../config/fuzzel;
                 recursive = true;
             };
     };

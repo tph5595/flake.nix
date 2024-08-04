@@ -31,8 +31,8 @@
         CLICLOLOR = 1;
     };
 
-    home.file."./.virtualenvs" = {
-        source = ./dotfiles/.virtualenvs;
-        recursive = true;
-    };
+    # home.file."./.virtualenvs" = {
+        # source = ../config/.virtualenvs;
+        # recursive = true;
+    # };
 }

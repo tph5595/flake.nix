@@ -30,7 +30,7 @@
     programs.fzf.enableZshIntegration = true;
 
     home.file."./.config/nvim/" = {
-        source = ./dotfiles/nvim;
+        source = ../config/nvim;
         recursive = true;
     };
 }

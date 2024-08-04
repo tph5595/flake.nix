@@ -4,7 +4,7 @@
         kitty
     ];
     home.file."./.config/kitty/" = {
-        source = ./dotfiles/kitty;
+        source = ../config/kitty;
         recursive = true;
     };
 }

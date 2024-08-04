@@ -1,7 +1,7 @@
 { pkgs, ... }: 
 
 let 
-    dvt = import ./scripts/dvt.nix { inherit pkgs; };
+    dvt = import ../bin/dvt.nix { inherit pkgs; };
 in 
 {
     home.packages = with pkgs; [

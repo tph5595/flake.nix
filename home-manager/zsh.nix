@@ -74,5 +74,5 @@
             hush = "systemctl --user start agenix.service";
         };
     };
-    home.file.".p10k.zsh".source = ./dotfiles/p10k.zsh;
+    home.file.".p10k.zsh".source = ../config/p10k.zsh;
 }
