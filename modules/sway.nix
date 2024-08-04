@@ -5,7 +5,7 @@
         sway.enable = 
             lib.mkEnableOption "enables sway";
     };
-    config = lib.mkIf config.docker.enable {
+    config = lib.mkIf config.sway.enable {
         # https://gist.github.com/mschwaig/195fe93ed85dea7aaceaf8e1fc6c0e99
         # configuring sway itself (assmung a display manager starts it)
         systemd.user.targets.sway-session = {
