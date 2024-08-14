@@ -1,6 +1,6 @@
 { pkgs, ... }: {
-    home.username = "joyvan";
-    home.homeDirectory = "/home/joyvan";
+    home.username = "jovyan";
+    home.homeDirectory = "/home/jovyan";
 
     programs.home-manager.enable = true;
 
