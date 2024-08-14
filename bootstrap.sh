@@ -30,6 +30,13 @@ export PATH=$PATH:~/.nix-profile/bin
 # apt-get install locales
 # locale-gen en_US.UTF-8
 
+# Add to .bashrc
+
+# . /home/jovyan/.nix-profile/etc/profile.d/nix.sh
+# export PATH=$PATH:.nix-profile/bin
+# unset LC_ALL
+# zsh
+
 nix run nixpkgs#home-manager -- switch --flake .#superSkinny
 
 sudo chsh $USER -s .nix-profile/bin/zsh
