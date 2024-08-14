@@ -8,7 +8,7 @@
             ];
     programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#superSkinny";
     programs.zsh.initExtra = ''
-        . /home/joyvan/.nix-profile/etc/profile.d/nix.sh
+        . /home/jovyan/.nix-profile/etc/profile.d/nix.sh
     '';
 
 }

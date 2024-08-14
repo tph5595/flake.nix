@@ -19,12 +19,12 @@ EOF
 # For single user install
 export PATH=$PATH:~/.nix-profile/bin
 # Silly VScode 
-# rm /home/jovyan/.local/share/code-server/code-server-ipc.sock
+rm /home/jovyan/.local/share/code-server/code-server-ipc.sock
 # For other linux
 # How is this not set
-# export USER=jovyan
+export USER=jovyan
 # HOW?!
-# unset LC_ALL
+unset LC_ALL
 # NOT BELOW?
 # apt-get clean && apt-get update
 # apt-get install locales
