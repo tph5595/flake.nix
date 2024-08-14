@@ -20,24 +20,18 @@ EOF
 export PATH=$PATH:~/.nix-profile/bin
 # Silly VScode 
 rm /home/jovyan/.local/share/code-server/code-server-ipc.sock
-# For other linux
-# How is this not set
 export USER=jovyan
-# HOW?!
 unset LC_ALL
-# NOT BELOW?
-# apt-get clean && apt-get update
-# apt-get install locales
-# locale-gen en_US.UTF-8
 
 # Add to .bashrc
-
-# . /home/jovyan/.nix-profile/etc/profile.d/nix.sh
-# export PATH=$PATH:~/.nix-profile/bin
-# export USER=jovyan
-# unset LC_ALL
-# zsh
+cat >> ~/.bashrc << EOF
+. /home/jovyan/.nix-profile/etc/profile.d/nix.sh
+export PATH=$PATH:~/.nix-profile/bin
+export USER=jovyan
+unset LC_ALL
+zsh
+EOF
 
 nix run nixpkgs#home-manager -- switch --flake .#superSkinny
 
-sudo chsh $USER -s .nix-profile/bin/zsh
+sudo chsh $USER -s ~/.nix-profile/bin/zsh
