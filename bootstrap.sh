@@ -33,7 +33,8 @@ unset LC_ALL
 # Add to .bashrc
 
 # . /home/jovyan/.nix-profile/etc/profile.d/nix.sh
-# export PATH=$PATH:.nix-profile/bin
+# export PATH=$PATH:~/.nix-profile/bin
+# export USER=jovyan
 # unset LC_ALL
 # zsh
 
