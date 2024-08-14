@@ -30,9 +30,4 @@
     home.sessionVariables = {
         CLICLOLOR = 1;
     };
-
-    # home.file."./.virtualenvs" = {
-        # source = ../config/.virtualenvs;
-        # recursive = true;
-    # };
 }
