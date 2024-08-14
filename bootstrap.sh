@@ -28,10 +28,14 @@ cat >> ~/.bashrc << EOF
 . /home/jovyan/.nix-profile/etc/profile.d/nix.sh
 export PATH=$PATH:~/.nix-profile/bin
 export USER=jovyan
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 unset LC_ALL
 zsh
 EOF
 
 nix run nixpkgs#home-manager -- switch --flake .#superSkinny
+
+sudo apt update && sudo apt install python3.10-venv
 
 sudo chsh $USER -s ~/.nix-profile/bin/zsh

@@ -24,6 +24,7 @@
         php83Packages.composer
         cargo
         rustc
+        python310Packages.virtualenv
     ];
 
     programs.fzf.enable = true;
