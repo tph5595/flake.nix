@@ -14,9 +14,12 @@
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
           packages = with pkgs; [
-            # texlive.combined.scheme-full
             texliveFull
-            # texlab
+            (aspellWithDicts (dicts: with dicts;[
+                en
+                en-science
+                en-computers
+            ]))
           ];
         };
       });
