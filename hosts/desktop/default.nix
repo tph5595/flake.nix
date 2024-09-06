@@ -17,12 +17,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   docker.enable = true;
+  # virtualisation.docker.enable = true;
+
+  vm.enable = true;
 
   networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  virtualisation.docker.enable = true;
-
 
   # Enable networking
   networking.networkmanager.enable = true;

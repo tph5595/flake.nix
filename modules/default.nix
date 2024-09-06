@@ -7,5 +7,6 @@
       ./hyprland.nix
       ./sway.nix
       ./docker.nix
+      ./vm.nix
     ];
 }
