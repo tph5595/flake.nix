@@ -1,9 +1,15 @@
 { config, lib, pkgs, ... }: 
 {
     home.packages = with pkgs; [
+        # Terminal emulator
         foot
+        # dmenu style bar
         fuzzel
+        # copying around
         wl-clipboard
+        # Screenshot
+        grim 
+        slurp
     ];
     home.file."./.config/foot" = {
         source = ../config/foot;
