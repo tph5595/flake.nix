@@ -4,8 +4,8 @@
         tmux
     ];
     home.file."./.config/tmux" = {
-        source = ../config/tmux;
+        source = ../../config/tmux;
         recursive = true;
     };
-    home.file.".local/bin/tmux-sessionizer".source = ../bin/tmux-sessionizer;
+    home.file.".local/bin/tmux-sessionizer".source = ../../bin/tmux-sessionizer;
 }

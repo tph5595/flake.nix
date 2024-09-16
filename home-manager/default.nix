@@ -1,11 +1,11 @@
 { pkgs, ... }: 
 {
     imports = [
-        ./git.nix
-        ./zsh.nix
-        ./nvim.nix
-        ./tmux.nix
-        ./direnv.nix
+        ./modules/git.nix
+        ./modules/zsh.nix
+        ./modules/nvim.nix
+        ./modules/tmux.nix
+        ./modules/direnv.nix
     ];
     # Don't change this when you change package input. Leave it alone.
     home.stateVersion = "23.11";
