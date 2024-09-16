@@ -177,9 +177,17 @@
                   ./home-manager
                   ./home-manager/vecServer.nix
                   ({ ... }: {
-                   nixGLPrefix =
-                       # "${legacyPackages.x86_64-linux.nixgl.auto.nixGLNvidia}/bin/nixGLNvidia-550.67 ";
-                       "${legacyPackages.x86_64-linux.nixgl.nixGLIntel}/bin/nixGLIntel ";
+                   nixGLPrefix = "${legacyPackages.x86_64-linux.nixgl.nixGLIntel}/bin/nixGLIntel ";
+                   })
+              ];
+          };
+          taylor-Precision-5570 = home-manager.lib.homeManagerConfiguration {
+              pkgs = legacyPackages.x86_64-linux;
+              modules = [
+                  ./home-manager
+                  ./home-manager/vecLaptop.nix
+                  ({ ... }: {
+                   nixGLPrefix = "${legacyPackages.x86_64-linux.nixgl.nixGLIntel}/bin/nixGLIntel ";
                    })
               ];
           };
