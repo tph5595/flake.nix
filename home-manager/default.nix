@@ -10,6 +10,8 @@
     # Don't change this when you change package input. Leave it alone.
     home.stateVersion = "23.11";
 
+    news.display = "silent";
+
     programs.home-manager.enable = true;
 
     home.packages = with pkgs; [
