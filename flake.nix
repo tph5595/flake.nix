@@ -171,6 +171,13 @@
                   ./home-manager/superSkinny.nix
               ];
           };
+          kmserver08 = home-manager.lib.homeManagerConfiguration {
+              pkgs = legacyPackages.x86_64-linux;
+              modules = [
+                  ./home-manager
+	      	  ./home-manager/vecServer.nix
+              ];
+          };
       };
 
       templates = {
