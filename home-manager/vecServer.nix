@@ -5,7 +5,7 @@
     ];
     kitty = {
         enable = true;
-        font_size = "12.0";
+        font_size = "16.0";
         hide_borders = "no";
         nixGL = true;
     };
