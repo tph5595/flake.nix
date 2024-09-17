@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }: 
 {
         imports = [
-            ./conference.nix
-            ./kitty.nix
-            ./wayland_apps.nix
-            ./dropbox.nix
+            ./modules/conference.nix
+            ./modules/kitty.nix
+            ./modules/wayland_apps.nix
+            ./modules/dropbox.nix
         ];
 
         config = {
