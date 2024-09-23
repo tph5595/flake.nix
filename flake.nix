@@ -187,8 +187,7 @@
                   ./home-manager
                   ./home-manager/vecServer.nix
                   ({ ... }: {
-                   nixGLPrefix = #"${legacyPackages.x86_64-linux.nixgl.nixGLIntel}/bin/nixGLIntel ";
-                   "${legacyPackages.x86_64-linux.nixgl.auto.nixGLNvidia}/bin/nixGLNvidia-535.183 ";
+                   nixGLPrefix = "${legacyPackages.x86_64-linux.nixgl.nixGLIntel}/bin/nixGLIntel ";
                    })
               ];
           };
