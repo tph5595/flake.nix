@@ -3,6 +3,7 @@
     imports = [
         ./modules/kitty.nix
     ];
+
     kitty = {
         enable = true;
         font_size = "16.0";
