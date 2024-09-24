@@ -40,49 +40,41 @@
 		  system = "x86_64-linux";
 		  modules = [ 
 		      ./hosts/desktop
-		      agenix.nixosModules.age
 		      home-manager.nixosModules.home-manager
 		      {
-			  home-manager.useGlobalPkgs = false;
-			  home-manager.useUserPackages = true;
-			  home-manager.extraSpecialArgs = {
-			      pkgs-unstable = import nixpkgs-unstable {
-				  inherit system;
-				  config.allowUnfree = true;
-			      };
-			  };
-			  home-manager.users.taylor.imports = [
-			      ./home-manager
-			      ./home-manager/desktop.nix
-			  ];
-		      }
-		      {
-			  environment.systemPackages = [ agenix.packages.${system}.default ];
+                  home-manager.useGlobalPkgs = false;
+                  home-manager.useUserPackages = true;
+                  home-manager.extraSpecialArgs = {
+                      pkgs-unstable = import nixpkgs-unstable {
+                      inherit system;
+                      config.allowUnfree = true;
+                      };
+                  };
+                  home-manager.users.taylor.imports = [
+                      ./home-manager
+                      ./home-manager/desktop.nix
+                  ];
 		      }
 		  ];
 	      };
 	nixos = nixpkgs.lib.nixosSystem rec {
 		  system = "x86_64-linux";
 		  modules = [ 
-		      ./hosts/nixos
-		      agenix.nixosModules.age
+		      ./hosts/fw16
 		      home-manager.nixosModules.home-manager
 		      {
-			  home-manager.useGlobalPkgs = false;
-			  home-manager.useUserPackages = true;
-			  home-manager.extraSpecialArgs = {
-			      pkgs-unstable = import nixpkgs-unstable {
-				  inherit system;
-				  config.allowUnfree = true;
-			      };
-			  };
-			  home-manager.users.taylor.imports = [
-			      ./home-manager
-			      ./home-manager/desktop.nix
-			  ];
-		      }
-		      {
-			  environment.systemPackages = [ agenix.packages.${system}.default ];
+                  home-manager.useGlobalPkgs = false;
+                  home-manager.useUserPackages = true;
+                  home-manager.extraSpecialArgs = {
+                      pkgs-unstable = import nixpkgs-unstable {
+                      inherit system;
+                      config.allowUnfree = true;
+                      };
+                  };
+                  home-manager.users.taylor.imports = [
+                      ./home-manager
+                      ./home-manager/desktop.nix
+                  ];
 		      }
 		  ];
 	      };
