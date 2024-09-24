@@ -20,8 +20,13 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, nixGL, ... }: rec {
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, nixGL, nixos-hardware, ... }: rec {
       legacyPackages = nixpkgs.lib.genAttrs [ "x86_64-linux" "x86_64-darwin" ]
       (system:
         import inputs.nixpkgs {
@@ -57,10 +62,11 @@
 		      }
 		  ];
 	      };
-	nixos = nixpkgs.lib.nixosSystem rec {
+	fw16 = nixpkgs.lib.nixosSystem rec {
 		  system = "x86_64-linux";
 		  modules = [ 
 		      ./hosts/fw16
+              nixos-hardware.nixosModules.framework-16-7040-amd
 		      home-manager.nixosModules.home-manager
 		      {
                   home-manager.useGlobalPkgs = false;

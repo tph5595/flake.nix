@@ -17,8 +17,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   docker.enable = true;
-  # virtualisation.docker.enable = true;
-
   vm.enable = true;
 
   networking.hostName = "desktop"; # Define your hostname.
