@@ -2,33 +2,29 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./nvidia.nix
-      ../../modules
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  docker.enable = true;
-  # virtualisation.docker.enable = true;
-
-  vm.enable = true;
-
-  networking.hostName = "desktop"; # Define your hostname.
+  networking.hostName = "fw16"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.powersave = false;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -83,13 +79,16 @@
     #media-session.enable = true;
   };
 
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   programs.zsh.enable = true;
   users.users.taylor = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    description = "taylor";
-    extraGroups = [ "networkmanager" "wheel"];
+    description = "Taylor";
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   # Install firefox.

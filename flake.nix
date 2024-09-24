@@ -34,31 +34,59 @@
           overlays = [ nixGL.overlay ];
         });
 
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          modules = [ 
-              ./hosts/desktop
-              agenix.nixosModules.age
-              home-manager.nixosModules.home-manager
-              {
-                  home-manager.useGlobalPkgs = false;
-                  home-manager.useUserPackages = true;
-                  home-manager.extraSpecialArgs = {
-                      pkgs-unstable = import nixpkgs-unstable {
-                          inherit system;
-                          config.allowUnfree = true;
-                      };
-                  };
-                  home-manager.users.taylor.imports = [
-                      ./home-manager
-                      ./home-manager/desktop.nix
-                  ];
-              }
-              {
-                  environment.systemPackages = [ agenix.packages.${system}.default ];
-              }
-          ];
-      };
+      nixosConfigurations = 
+	{
+	desktop = nixpkgs.lib.nixosSystem rec {
+		  system = "x86_64-linux";
+		  modules = [ 
+		      ./hosts/desktop
+		      agenix.nixosModules.age
+		      home-manager.nixosModules.home-manager
+		      {
+			  home-manager.useGlobalPkgs = false;
+			  home-manager.useUserPackages = true;
+			  home-manager.extraSpecialArgs = {
+			      pkgs-unstable = import nixpkgs-unstable {
+				  inherit system;
+				  config.allowUnfree = true;
+			      };
+			  };
+			  home-manager.users.taylor.imports = [
+			      ./home-manager
+			      ./home-manager/desktop.nix
+			  ];
+		      }
+		      {
+			  environment.systemPackages = [ agenix.packages.${system}.default ];
+		      }
+		  ];
+	      };
+	nixos = nixpkgs.lib.nixosSystem rec {
+		  system = "x86_64-linux";
+		  modules = [ 
+		      ./hosts/nixos
+		      agenix.nixosModules.age
+		      home-manager.nixosModules.home-manager
+		      {
+			  home-manager.useGlobalPkgs = false;
+			  home-manager.useUserPackages = true;
+			  home-manager.extraSpecialArgs = {
+			      pkgs-unstable = import nixpkgs-unstable {
+				  inherit system;
+				  config.allowUnfree = true;
+			      };
+			  };
+			  home-manager.users.taylor.imports = [
+			      ./home-manager
+			      ./home-manager/desktop.nix
+			  ];
+		      }
+		      {
+			  environment.systemPackages = [ agenix.packages.${system}.default ];
+		      }
+		  ];
+	      };
+	};
       darwinConfigurations.BestBox = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           pkgs = legacyPackages.x86_64-darwin;
