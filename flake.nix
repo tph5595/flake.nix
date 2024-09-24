@@ -20,8 +20,10 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, nixGL, ... }: rec {
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, nixGL, nixos-hardware, ... }: rec {
       legacyPackages = nixpkgs.lib.genAttrs [ "x86_64-linux" "x86_64-darwin" ]
       (system:
         import inputs.nixpkgs {
@@ -34,31 +36,52 @@
           overlays = [ nixGL.overlay ];
         });
 
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          modules = [ 
-              ./hosts/desktop
-              agenix.nixosModules.age
-              home-manager.nixosModules.home-manager
-              {
+      nixosConfigurations = 
+	{
+	desktop = nixpkgs.lib.nixosSystem rec {
+		  system = "x86_64-linux";
+		  modules = [ 
+		      ./hosts/desktop
+		      home-manager.nixosModules.home-manager
+		      {
                   home-manager.useGlobalPkgs = false;
                   home-manager.useUserPackages = true;
                   home-manager.extraSpecialArgs = {
                       pkgs-unstable = import nixpkgs-unstable {
-                          inherit system;
-                          config.allowUnfree = true;
+                      inherit system;
+                      config.allowUnfree = true;
                       };
                   };
                   home-manager.users.taylor.imports = [
                       ./home-manager
                       ./home-manager/desktop.nix
                   ];
-              }
-              {
-                  environment.systemPackages = [ agenix.packages.${system}.default ];
-              }
-          ];
-      };
+		      }
+		  ];
+	      };
+	fw16 = nixpkgs.lib.nixosSystem rec {
+		  system = "x86_64-linux";
+		  modules = [ 
+		      ./hosts/fw16
+              nixos-hardware.nixosModules.framework-16-7040-amd
+		      home-manager.nixosModules.home-manager
+		      {
+                  home-manager.useGlobalPkgs = false;
+                  home-manager.useUserPackages = true;
+                  home-manager.extraSpecialArgs = {
+                      pkgs-unstable = import nixpkgs-unstable {
+                      inherit system;
+                      config.allowUnfree = true;
+                      };
+                  };
+                  home-manager.users.taylor.imports = [
+                      ./home-manager
+                      ./home-manager/desktop.nix
+                  ];
+		      }
+		  ];
+	      };
+	};
       darwinConfigurations.BestBox = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           pkgs = legacyPackages.x86_64-darwin;

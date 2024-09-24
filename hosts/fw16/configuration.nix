@@ -2,31 +2,27 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./nvidia.nix
-      ../../modules
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  docker.enable = true;
-  vm.enable = true;
-
-  networking.hostName = "desktop"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.powersave = false;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -54,9 +50,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
+  services.xserver = {
     layout = "us";
-    variant = "dvorak";
+    xkbVariant = "dvorak";
   };
 
   # Configure console keymap
@@ -81,30 +77,50 @@
     #media-session.enable = true;
   };
 
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  programs.zsh.enable = true;
   users.users.taylor = {
     isNormalUser = true;
-    shell = pkgs.zsh;
-    description = "taylor";
-    extraGroups = [ "networkmanager" "wheel"];
+    description = "Taylor";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+    #  thunderbird
+    ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-      R
-  ];
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
+  ];
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # List services that you want to enable:
+
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  programs.ssh.askPassword = "";
-  services.tailscale.enable = true;
+  # services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -114,7 +130,4 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  fonts.packages = with pkgs; [
-  (nerdfonts.override { fonts = [ "Hack" ]; })
-];
 }
