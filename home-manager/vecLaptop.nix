@@ -21,7 +21,7 @@
     ];
 
     programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";
-    programs.zsh.shellAliases.vecVPN = "pushd ~/Documents/VPN; sudo openvpn --conf vectare.ovpn; popd";
+    programs.zsh.shellAliases.vecVPN = "sudo openvpn ~/Documents/VPN/vectare.ovpn";
     programs.zsh.initExtra = ''
         . /home/$USER/.nix-profile/etc/profile.d/nix.sh
         '';
