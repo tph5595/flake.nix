@@ -1,7 +1,10 @@
 { pkgs, ... }: {
     imports = [
-        ./kitty.nix
+        ./modules/kitty.nix
     ];
+
+    kitty.enable = true;
+
     home.packages = with pkgs; [
             # General
             ffmpeg_5-full
@@ -11,6 +14,7 @@
             openvpn
             darktable
             ];
+
     home.sessionVariables = {
         BROWSER = "firefox";
     };

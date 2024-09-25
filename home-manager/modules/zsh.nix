@@ -69,7 +69,7 @@
             gps = "git push";
             gpl = "git pull";
             revealjs = "pandoc -t revealjs -s --mathjax -i --variable transition=none --variable controls=false --variable controlsTutorial=false --variable slideNumber=true --variable fragments=false --variable theme=dracula -o ";
-            ssh = "kitty +kitten ssh";
+            ssh_kitty = "kitty +kitten ssh";
             weather = "curl wttr.in";
             hush = "systemctl --user start agenix.service";
         };
