@@ -1,8 +1,7 @@
 { config, pkgs, lib, ... }:
 {
     environment.systemPackages = with pkgs; [
-        # dropbox - we don't need this in the environment. systemd unit pulls it in
-        dropbox-cli
+        dropbox
     ];
 
     networking.firewall = {
@@ -21,7 +20,7 @@
             ExecStart = "${lib.getBin pkgs.dropbox}/bin/dropbox";
             ExecReload = "${lib.getBin pkgs.coreutils}/bin/kill -HUP $MAINPID";
             KillMode = "control-group"; # upstream recommends process
-                Restart = "always";
+            Restart = "always";
             PrivateTmp = true;
             ProtectSystem = "full";
             Nice = 10;

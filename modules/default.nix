@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./dropbox.nix
+      # ./dropbox.nix
       ./hyprland.nix
       ./sway.nix
       ./docker.nix

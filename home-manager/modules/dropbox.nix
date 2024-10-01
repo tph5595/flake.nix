@@ -10,7 +10,7 @@
         Service = {
             # Type = "exec";
             ExecStart = "${pkgs.dropbox}/bin/dropbox";
-            # Restart = "on-failure";
+            Restart = "on-failure";
             # RestartSec = 2;
         };
     };

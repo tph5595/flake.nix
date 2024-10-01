@@ -40,6 +40,8 @@
                 # systemctl --user start agenix.service
             # fi
             cd $HOME
+
+            export LD_LIBRARY_PATH=${pkgs.libGL}/lib/
             '';
         envExtra = ''
             EDITOR=nvim
