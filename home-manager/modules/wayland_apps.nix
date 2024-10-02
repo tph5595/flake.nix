@@ -11,6 +11,7 @@
         grim 
         slurp
         # Idle and lock
+        brightnessctl
     ];
 
     services.hypridle = {

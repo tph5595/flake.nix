@@ -3,10 +3,10 @@
 {
   imports =
     [
-      # ./dropbox.nix
       ./hyprland.nix
       ./sway.nix
       ./docker.nix
       ./vm.nix
+      ./clamav.nix
     ];
 }
