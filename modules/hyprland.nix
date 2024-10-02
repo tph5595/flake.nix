@@ -7,4 +7,6 @@
   };
   programs.waybar.enable = true;
   services.xserver.displayManager.gdm.wayland = true;  
+
+  security.pam.services.hyprlock = {};
 }
