@@ -8,5 +8,6 @@
       ./docker.nix
       ./vm.nix
       ./clamav.nix
+      ./lookingglass.nix
     ];
 }

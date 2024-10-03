@@ -12,6 +12,7 @@
             home.homeDirectory = "/home/taylor";
 
             programs.home-manager.enable = true;
+            programs.autorandr.enable = true;
 
             nixpkgs.config.allowUnfree = true;
 

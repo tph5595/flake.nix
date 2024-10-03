@@ -4,38 +4,83 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+    imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+    boot = {
+        extraModprobeConfig = "options vfio-pci ids=1002:7480,1002:ab30";
+        extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
+        initrd = {
+            availableKernelModules = [
+                "amdgpu"
+                "nvme"
+                "xhci_pci"
+                "thunderbolt"
+                "usbhid"
+                "usb_storage"
+                "uas"
+                "sd_mod"
+                "pci_stub"
+                "vfio"
+                "vfio-pci"
+                "vfio_iommu_type1"
 
-  fileSystems."/" =
+            ];
+            kernelModules = [
+                "vfio"
+                "vfio-pci"
+                # order matters here, the vfio have to come before the amdgpu
+                # or else the gpu will grab the pci device before it can be
+                # set for vfio-pci passthru
+                "amdgpu"
+            ];
+            preDeviceCommands = ''
+                DEVS="0000:03:00.0 0000:03:00.1"
+                for DEV in $DEVS; do
+                    echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
+                done
+                modprobe -i vfio-pci
+                '';
+        };
+        kernelModules = [
+            "kvm-amd"
+            "pci_stub"
+             "vfio_pci"
+             "vfio"
+             "vfio_iommu_type1"
+             "kvmfr"
+        ];
+        kernelParams = [
+            "iommu=pt"
+            "amd_iommu=on"
+            "vfio-pci.ids=1002:7480,1002:ab30"
+            "pci-stub.ids=1002:7480,1002:ab30"
+            "mem_sleep_default=deep"
+        ];
+    };
+
+    fileSystems."/" =
     { device = "/dev/disk/by-uuid/87af709e-f23f-45e3-a153-4530867264c7";
-      fsType = "ext4";
+        fsType = "ext4";
     };
 
-  fileSystems."/boot" =
+    fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/0124-A85A";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+        fsType = "vfat";
+        options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [{
-	  device = "/swapfile";
-	  size = 32 * 1014; # 32GB
-  }];
+    swapDevices = [{
+        device = "/swapfile";
+        size = 32 * 1014; # 32GB
+    }];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
+    # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+    # (the default) this is the recommended approach. When using systemd-networkd it's
+    # still possible to use this option, but it's recommended to use it in conjunction
+    # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+    networking.useDHCP = lib.mkDefault true;
+    # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+    hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
