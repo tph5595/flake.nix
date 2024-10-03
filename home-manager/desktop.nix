@@ -49,6 +49,8 @@
                     pinentry
                     # gui network manager
                     networkmanagerapplet
+                    # ebook manager
+                    calibre
                     ];
 
             home.sessionVariables = {
