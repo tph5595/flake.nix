@@ -103,7 +103,13 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Taylor";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ 
+    "networkmanager" 
+    "wheel" 
+    "libvirtd"
+    "qemu-libvirtd"
+    "plugdev"
+    ];
   };
 
   # Install firefox.
