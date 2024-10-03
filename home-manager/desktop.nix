@@ -47,6 +47,8 @@
                     appimage-run
                     R
                     pinentry
+                    # gui network manager
+                    networkmanagerapplet
                     ];
 
             home.sessionVariables = {
