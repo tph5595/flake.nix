@@ -29,6 +29,11 @@
             key = "E9857FBDFC23A621";
         };
         extraConfig = {
+            # Sign all commits using ssh key
+            commit.gpgsign = true;
+            gpg.format = "ssh";
+            user.signingkey = "~/.ssh/github.pub";
+
             credential.helper = "${
                 pkgs.git.override { withLibsecret = true; }
             }/bin/git-credential-libsecret";
