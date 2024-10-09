@@ -81,8 +81,10 @@
   # Enable sound with pipewire.
   hardware.pulseaudio = {
       enable = false;
-      package = pkgs.pulseaudioFull;
+      # package = pkgs.pulseaudioFull;
   };
+
+  sound.mediaKeys.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -96,13 +98,6 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
-  };
-
-  hardware.bluetooth.settings = {
-    General = {
-      Enable = "Source,Sink,Media,Socket";
-      Experimental = true;
-    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -120,6 +115,7 @@
     "libvirtd"
     "qemu-libvirtd"
     "plugdev"
+    "bluetooth"
     ];
   };
 
@@ -138,6 +134,15 @@
   services.openssh.enable = true;
   programs.ssh.askPassword = "";
   services.tailscale.enable = true;
+
+  programs.light.enable = true;
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
+      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -14,6 +14,25 @@
             programs.home-manager.enable = true;
             programs.autorandr.enable = true;
 
+            programs.ssh = {
+                enable = true;
+                matchBlocks = {
+                    "github.com" = {
+                        hostname = "github.com";
+                        identityFile = "${config.home.homeDirectory}/.ssh/github";
+                    };
+                };
+            };
+
+            programs.gh = {
+                enable = true;
+                settings = {
+                    git_protocol = "ssh";
+                    prompt = "enabled";
+                    editor = "nvim";
+                };
+            };
+
             nixpkgs.config.allowUnfree = true;
 
             nixpkgs.config.permittedInsecurePackages = [
