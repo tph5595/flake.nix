@@ -30,6 +30,7 @@
                     openvpn
                     anki
                     firefox-wayland
+                    pavucontrol # audio control gui
                     # Photo
                     darktable
                     davinci-resolve
