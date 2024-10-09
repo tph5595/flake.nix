@@ -29,6 +29,7 @@
                     obsidian
                     openvpn
                     anki
+                    firefox-wayland
                     # Photo
                     darktable
                     davinci-resolve
