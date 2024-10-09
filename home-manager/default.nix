@@ -30,6 +30,7 @@
             just
             zstd
             ];
+
     home.sessionVariables = {
         CLICLOLOR = 1;
     };
