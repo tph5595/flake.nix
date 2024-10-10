@@ -13,8 +13,20 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
-          packages = with pkgs; [ ocaml ] ++
-            (with pkgs.ocamlPackages; [ dune_3 odoc utop fmt core base batteries findlib]);
+        packages = with pkgs; [ 
+            ocaml 
+            ocamlformat
+        ] ++
+        (with pkgs.ocamlPackages; [ 
+             dune_3 
+             odoc 
+             utop 
+             findlib 
+             ocaml-lsp
+             core 
+             base 
+             batteries 
+          ]);
         };
       });
     };
