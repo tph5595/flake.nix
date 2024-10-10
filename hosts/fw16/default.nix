@@ -25,6 +25,7 @@
       looking-glass-client
       qmk
       qmk-udev-rules
+      pamixer
   ];
 
   hardware.keyboard.qmk.enable = true;
@@ -84,8 +85,6 @@
       # package = pkgs.pulseaudioFull;
   };
 
-  sound.mediaKeys.enable = true;
-
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -139,8 +138,19 @@
   services.actkbd = {
     enable = true;
     bindings = [
+      # Screen Brightness
+      # F7
       { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
+      # F8
       { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+
+      # Audio
+      # F1
+      { keys = [ 113 ]; events = [ "key" ]; command = "pamixer -t"; }
+      # F2
+      { keys = [ 114 ]; events = [ "key" ]; command = "pamixer -i 10"; }
+      # F3
+      { keys = [ 115 ]; events = [ "key" ]; command = "pamixer -d 10"; }
     ];
   };
 
