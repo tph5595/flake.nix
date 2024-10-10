@@ -40,6 +40,8 @@ return {
                     end,
                 }
             }
+
+            require("lspconfig").ocamllsp.setup {}
             -- Others things I liked
             -- vim.cmd("MasonInstall ocmalformat latexindent")
 
