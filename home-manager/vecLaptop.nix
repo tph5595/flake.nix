@@ -18,6 +18,7 @@
 
     home.packages = with pkgs; [
         pinentry
+        xclip
     ];
 
     programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";
