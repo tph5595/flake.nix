@@ -31,6 +31,7 @@
                     anki
                     firefox-wayland
                     pavucontrol # audio control gui
+                    qalculate-qt
                     # Photo
                     darktable
                     davinci-resolve
