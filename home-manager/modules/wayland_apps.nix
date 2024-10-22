@@ -82,4 +82,5 @@
     home.file.".local/bin/status_bar.sh".source = ../../bin/status_bar.sh;
     home.file.".local/bin/cmus_song".source = ../../bin/cmus_song;
     home.file.".local/bin/createTask".source = ../../bin/createTask;
+    home.file.".local/bin/toggle_calc".source = ../../bin/toggle_calc;
 }
