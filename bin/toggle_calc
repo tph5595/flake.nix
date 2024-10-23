@@ -1,13 +1,9 @@
 #!/run/current-system/sw/bin/bash
 
-# Check if gedit is running
-# -x flag only match processes whose name (or command line if -f is
-# specified) exactly match the pattern. 
-
 PID=$(pgrep -x ".qalculate-qt-w")
 if [ $? -eq 0 ];
 then
-    kill -9 $PID
+    kill $PID
 else
     qalculate-qt &
     disown
