@@ -11,6 +11,7 @@
         libvdpau
         libvdpau-va-gl
         vaapiVdpau
+        rocmPackages.clr.icd
       ];
       extraPackages32 = [
         pkgs.driversi686Linux.amdvlk
