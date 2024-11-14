@@ -27,17 +27,21 @@
       devShells = forAllSystems ({ pkgs }: {
         default =
           let
-            # Use Python 3.11
-            python = pkgs.python311;
+            # Use Python 3.12
+            python = pkgs.python312;
           in
           pkgs.mkShell {
             LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib.outPath}/lib:${pkgs.lib.makeLibraryPath [pkgs.zlib]}:$LD_LIBRARY_PATH";
             # The Nix packages provided in the environment
             packages = with pkgs; [
                 poetry
-              # Python plus helper tools
-              (python.withPackages (ps: with ps; [
-                pip
+                # Python plus helper tools
+                (python.withPackages (ps: with ps; [
+                    pip
+                    # LSP 
+                    python-lsp-server
+                    python-lsp-ruff
+                    pylsp-rope
               ]))
             ];
           };
