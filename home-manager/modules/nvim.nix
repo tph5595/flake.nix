@@ -25,6 +25,7 @@
         cargo
         rustc
         python310Packages.virtualenv
+        lua53Packages.lua-lsp
     ];
 
     programs.fzf.enable = true;

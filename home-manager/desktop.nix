@@ -32,6 +32,7 @@
                     firefox-wayland
                     pavucontrol # audio control gui
                     qalculate-qt
+                    thunderbird
                     # Photo
                     darktable
                     davinci-resolve

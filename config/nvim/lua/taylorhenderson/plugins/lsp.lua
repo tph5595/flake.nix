@@ -15,13 +15,12 @@ return {
         config = function ()
             require("mason").setup()
             require("mason-lspconfig").setup {
-                ensure_installed = {
-                    "lua_ls",
-                    -- "rust_analyzer",
-                    "texlab",
-                    "ltex",
-                    "pylsp",
-                },
+                -- ensure_installed = {
+                --     "lua_ls",
+                --     "texlab",
+                --     "ltex",
+                --     "pylsp",
+                -- },
                 handlers = {
                     function (server_name)
                         require("lspconfig")[server_name].setup{}
@@ -42,8 +41,11 @@ return {
             }
 
             require("lspconfig").ocamllsp.setup {}
-            -- Others things I liked
-            -- vim.cmd("MasonInstall ocmalformat latexindent")
+            require("lspconfig").pylsp.setup {}
+            require("lspconfig").ltex.setup {}
+            require("lspconfig").texlab.setup {}
+            require("lspconfig").lua_ls.setup {}
+            require("lspconfig").rust_analyzer.setup {}
 
             local cmp = require("cmp")
             local cmp_select = {behavior = cmp.SelectBehavior.Select}

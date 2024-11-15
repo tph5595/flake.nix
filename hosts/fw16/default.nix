@@ -145,12 +145,12 @@
       { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
 
       # Audio
-      # F1
-      { keys = [ 113 ]; events = [ "key" ]; command = "pamixer -t"; }
-      # F2
-      { keys = [ 114 ]; events = [ "key" ]; command = "pamixer -i 10"; }
-      # F3
-      { keys = [ 115 ]; events = [ "key" ]; command = "pamixer -d 10"; }
+      # # F1
+      # { keys = [ 113 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/pamixer -t &> /home/logit_me"; }
+      # # F2
+      # { keys = [ 114 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/pamixer -i 10"; }
+      # # F3
+      # { keys = [ 115 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/pamixer -d 10"; }
     ];
   };
 
