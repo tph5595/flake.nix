@@ -13,10 +13,10 @@
   "nvim-dap": { "branch": "master", "commit": "29d1f8814fa4fcc194ec574de998a42a22ebbe4a" },
   "nvim-dap-python": { "branch": "master", "commit": "3e3dd98d4d83715c9e0e429b4a5da7bd706e6ceb" },
   "nvim-dap-ui": { "branch": "master", "commit": "ffa89839f97bad360e78428d5c740fdad9a0ff02" },
-  "nvim-lspconfig": { "branch": "master", "commit": "87c7c83ce62971e0bdb29bb32b8ad2b19c8f95d0" },
+  "nvim-lspconfig": { "branch": "master", "commit": "f012c1b176f0e3c71f40eb309bdec0316689462e" },
   "nvim-nio": { "branch": "master", "commit": "a428f309119086dc78dd4b19306d2d67be884eee" },
   "nvim-surround": { "branch": "main", "commit": "dca2e998ff26681ee422b92c6ed39b3d2908d8a9" },
-  "nvim-treesitter": { "branch": "master", "commit": "13c7caf8a602488b37cdefe8543c4cfdd5947d9d" },
+  "nvim-treesitter": { "branch": "master", "commit": "1c0cbdef44a2cc35c6436e0866a2a5282b339ffd" },
   "nvim-web-devicons": { "branch": "master", "commit": "19d257cf889f79f4022163c3fbb5e08639077bd8" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "rose-pine": { "branch": "main", "commit": "07a887a7bef4aacea8c7caebaf8cbf808cdc7a8e" },
@@ -28,7 +28,7 @@
   "undotree": { "branch": "master", "commit": "78b5241191852ffa9bb5da5ff2ee033160798c3b" },
   "vim-commentary": { "branch": "master", "commit": "64a654ef4a20db1727938338310209b6a63f60c9" },
   "vim-fugitive": { "branch": "master", "commit": "d4877e54cef67f5af4f950935b1ade19ed6b7370" },
-  "vim-just": { "branch": "main", "commit": "cd11f4bb51ae576daae48a27c1c0f98afd59e52c" },
+  "vim-just": { "branch": "main", "commit": "95f7973010d73bfe87550cd2e21ed9e8c72ee106" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "zen-mode.nvim": { "branch": "main", "commit": "29b292bdc58b76a6c8f294c961a8bf92c5a6ebd6" }
 }
