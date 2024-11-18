@@ -44,7 +44,15 @@ return {
             require("lspconfig").pylsp.setup {}
             require("lspconfig").ltex.setup {}
             require("lspconfig").texlab.setup {}
-            require("lspconfig").lua_ls.setup {}
+            require("lspconfig").lua_ls.setup {
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' }
+                        }
+                    }
+                }
+            }
             require("lspconfig").rust_analyzer.setup {}
 
             local cmp = require("cmp")
