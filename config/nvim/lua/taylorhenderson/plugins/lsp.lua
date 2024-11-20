@@ -54,6 +54,7 @@ return {
                 }
             }
             require("lspconfig").rust_analyzer.setup {}
+            require("lspconfig").marksman.setup {}
 
             local cmp = require("cmp")
             local cmp_select = {behavior = cmp.SelectBehavior.Select}
