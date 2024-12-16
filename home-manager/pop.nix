@@ -43,7 +43,7 @@
                     (nixGL darktable)
                     # (nixGL ansel)
                     davinci-resolve
-                    ffmpeg_5-full
+                    ffmpeg_6-full
                     # Gaming
                     (nixGL steam)
                     (nixGL discord)

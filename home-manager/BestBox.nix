@@ -7,7 +7,7 @@
 
     home.packages = with pkgs; [
             # General
-            ffmpeg_5-full
+            ffmpeg_6-full
             terminal-notifier
             pinentry_mac
             # GUI
