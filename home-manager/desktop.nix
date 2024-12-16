@@ -56,6 +56,8 @@
                     networkmanagerapplet
                     # ebook manager
                     calibre
+                    # Chess
+                    en-croissant
                     ];
 
             home.sessionVariables = {
