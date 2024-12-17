@@ -36,7 +36,7 @@
                     # Photo
                     darktable
                     davinci-resolve
-                    ffmpeg_5-full
+                    ffmpeg_6-full
                     feh
                     # Gaming
                     steam
@@ -56,6 +56,8 @@
                     networkmanagerapplet
                     # ebook manager
                     calibre
+                    # Chess
+                    en-croissant
                     ];
 
             home.sessionVariables = {
