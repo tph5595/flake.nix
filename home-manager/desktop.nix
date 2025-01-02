@@ -18,6 +18,7 @@
 
             nixpkgs.config.permittedInsecurePackages = [
                 "electron-25.9.0"
+                "golden-cheetah-3.6"
             ];
             systemd.user.startServices = "sd-switch";
 
@@ -48,7 +49,7 @@
                     bitwig-studio
                     cmus
                     # Workout
-                    # golden-cheetah
+                    golden-cheetah-bin
                     appimage-run
                     R
                     pinentry
