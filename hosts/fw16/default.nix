@@ -14,7 +14,7 @@
 
   docker.enable = true;
   vm.enable = true;
-  clamav.enable = true;
+  clamav.enable = false;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -119,6 +119,9 @@
     "qemu-libvirtd"
     "plugdev"
     "bluetooth"
+    # These two are needed for gns3
+    "ubridge" 
+    "libvirt"
     ];
   };
 
