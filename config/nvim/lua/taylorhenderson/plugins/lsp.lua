@@ -40,10 +40,18 @@ return {
                 }
             }
 
+            -- OCaml
             require("lspconfig").ocamllsp.setup {}
+            -- Python
             require("lspconfig").pylsp.setup {}
+            require("lspconfig").ruff.setup {}
+            -- Latex/Markdown
             require("lspconfig").ltex.setup {}
             require("lspconfig").texlab.setup {}
+            require("lspconfig").marksman.setup {}
+            -- Rust
+            require("lspconfig").rust_analyzer.setup {}
+            -- Lua
             require("lspconfig").lua_ls.setup {
                 settings = {
                     Lua = {
@@ -53,8 +61,6 @@ return {
                     }
                 }
             }
-            require("lspconfig").rust_analyzer.setup {}
-            require("lspconfig").marksman.setup {}
 
             local cmp = require("cmp")
             local cmp_select = {behavior = cmp.SelectBehavior.Select}
