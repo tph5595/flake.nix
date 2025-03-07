@@ -42,6 +42,7 @@
                     python-lsp-server
                     python-lsp-ruff
                     pylsp-rope
+                    ruff
               ]))
             ];
           };

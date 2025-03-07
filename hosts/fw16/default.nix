@@ -14,7 +14,7 @@
 
   docker.enable = true;
   vm.enable = true;
-  clamav.enable = false;
+  k3s.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
