@@ -30,7 +30,16 @@
       qmk
       qmk-udev-rules
       pamixer
+      networkmanager-vpnc
   ];
+
+  # Increase ulimit
+  security.pam.loginLimits = [{
+      domain = "*";
+      type = "soft";
+      item = "nofile";
+      value = "8192";
+  }];
 
   hardware.keyboard.qmk.enable = true;
 

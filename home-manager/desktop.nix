@@ -59,6 +59,8 @@
                     calibre
                     # Chess
                     en-croissant
+                    # GPU monitor
+                    nvtop
                     ];
 
             home.sessionVariables = {
