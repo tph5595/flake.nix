@@ -60,7 +60,7 @@
                     # Chess
                     en-croissant
                     # GPU monitor
-                    nvtop
+                    nvtopPackages.full
                     ];
 
             home.sessionVariables = {
