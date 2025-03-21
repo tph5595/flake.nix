@@ -1,15 +1,13 @@
 {
   description = "Example Python development environment for Zero to Nix";
 
-  # Flake inputs
   inputs = {
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*.tar.gz";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
-  # Flake outputs
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, nixpkgs-unstable}:
     let
-      # Systems supported
       allSystems = [
         "x86_64-linux" # 64-bit Intel/AMD Linux
         "aarch64-linux" # 64-bit ARM Linux
@@ -17,14 +15,13 @@
         "aarch64-darwin" # 64-bit ARM macOS
       ];
 
-      # Helper to provide system-specific attributes
       forAllSystems = f: nixpkgs.lib.genAttrs allSystems (system: f {
         pkgs = import nixpkgs { inherit system; };
+        pkgs-unstable = import nixpkgs-unstable { inherit system; };
       });
     in
     {
-      # Development environment output
-      devShells = forAllSystems ({ pkgs }: {
+      devShells = forAllSystems ({ pkgs, pkgs-unstable}: {
         default =
           let
             # Use Python 3.12
@@ -32,10 +29,8 @@
           in
           pkgs.mkShell {
             LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib.outPath}/lib:${pkgs.lib.makeLibraryPath [pkgs.zlib]}:$LD_LIBRARY_PATH";
-            # The Nix packages provided in the environment
             packages = with pkgs; [
-                poetry
-                # Python plus helper tools
+                just
                 (python.withPackages (ps: with ps; [
                     pip
                     # LSP 
@@ -44,6 +39,8 @@
                     pylsp-rope
                     ruff
               ]))
+            ] ++ [
+                pkgs-unstable.uv
             ];
           };
       });
