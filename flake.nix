@@ -22,8 +22,10 @@
     };
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
+
+    nixpkgs-python.url = "github:cachix/nixpkgs-python";
   };
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, nixGL, nixos-hardware, ... }: rec {
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, nixGL, nixos-hardware, nixpkgs-python, ... }: rec {
       legacyPackages = nixpkgs.lib.genAttrs [ "x86_64-linux" "x86_64-darwin" ]
       (system:
         import inputs.nixpkgs {
@@ -51,6 +53,9 @@
                       inherit system;
                       config.allowUnfree = true;
                       };
+                      pkgs-python = import nixpkgs-python {
+                          inherit system;
+                      };
                   };
                   home-manager.users.taylor.imports = [
                       ./home-manager
@@ -73,6 +78,7 @@
                       inherit system;
                       config.allowUnfree = true;
                       };
+                      pkgs-python = nixpkgs-python;
                   };
                   home-manager.users.taylor.imports = [
                       ./home-manager

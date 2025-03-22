@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: 
+{ config, lib, pkgs, pkgs-python, ... }: 
 {
         imports = [
             ./modules/conference.nix
@@ -52,6 +52,11 @@
                     golden-cheetah-bin
                     appimage-run
                     R
+                    # rstudioWrapper.override{ 
+                    #     packages = with rPackages; [ 
+                    #         ggplot2 dplyr xts 
+                    #     ]; 
+                    # }
                     pinentry
                     # gui network manager
                     networkmanagerapplet
@@ -61,6 +66,12 @@
                     en-croissant
                     # GPU monitor
                     nvtopPackages.full
+                    ] ++ [
+                    (pkgs-python.packages.x86_64-linux."3.7.17".withPackages 
+                    (ps: with ps; [
+                        # pip
+                        # pandas
+                    ]))
                     ];
 
             home.sessionVariables = {
