@@ -53,9 +53,7 @@
                       inherit system;
                       config.allowUnfree = true;
                       };
-                      pkgs-python = import nixpkgs-python {
-                          inherit system;
-                      };
+                      pkgs-python = nixpkgs-python;
                   };
                   home-manager.users.taylor.imports = [
                       ./home-manager
