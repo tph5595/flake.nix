@@ -29,6 +29,14 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
 
+  # Increase ulimit
+  security.pam.loginLimits = [{
+      domain = "*";
+      type = "soft";
+      item = "nofile";
+      value = "8192";
+  }];
+
   # Set your time zone.
   time.timeZone = "America/New_York";
 
