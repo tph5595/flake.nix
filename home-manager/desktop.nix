@@ -31,6 +31,7 @@
                     openvpn
                     anki
                     firefox-wayland
+                    librewolf
                     pavucontrol # audio control gui
                     qalculate-qt
                     thunderbird
@@ -75,7 +76,7 @@
                     ];
 
             home.sessionVariables = {
-                BROWSER = "firefox";
+                BROWSER = "librewolf";
             };
 
             programs.zsh.shellAliases.nixswitch = "sudo nixos-rebuild switch --flake ~/flake.nix/.#$HOST";

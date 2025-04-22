@@ -90,8 +90,8 @@ input "type:keyboard" {
     # Create a new Obsidian task based on template
     bindsym $mod+t exec ~/.local/bin/createTask
 
-    # Firefox
-    bindsym $mod+w exec firefox
+    # Librewolf
+    bindsym $mod+w exec librewolf
 
     # Lock the screen
     bindsym $mod+y exec swaylock -i /home/taylor/Pictures/lock.jpg

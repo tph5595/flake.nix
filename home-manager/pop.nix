@@ -70,7 +70,7 @@
                 # package = (nixGL "${pkgs.golden-cheetah}/bin/GoldenCheetah");
             # };
             home.sessionVariables = {
-                BROWSER = "firefox";
+                BROWSER = "librewolf";
             };
 
             programs.zsh.shellAliases.nixswitch = "home-manager switch --flake ~/flake.nix/.#$HOST";

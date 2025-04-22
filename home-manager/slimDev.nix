@@ -6,7 +6,7 @@
         pinentry_mac
     ];
     home.sessionVariables = {
-        BROWSER = "firefox";
+        BROWSER = "librewolf";
     };
 
     programs.zsh.shellAliases.nixswitch = "darwin-rebuild switch --flake ~/flake.nix/.#slimDev";
