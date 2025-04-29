@@ -37,7 +37,7 @@
                     thunderbird
                     # Photo
                     darktable
-                    davinci-resolve
+                    # davinci-resolve
                     ffmpeg_6-full
                     feh
                     # Gaming
@@ -45,9 +45,9 @@
                     discord
                     # Music
                     vlc
-                    tidal-hifi
-                    mixxx
-                    bitwig-studio
+                    # tidal-hifi
+                    # mixxx
+                    # bitwig-studio
                     cmus
                     # Workout
                     golden-cheetah-bin
@@ -66,7 +66,7 @@
                     # Chess
                     en-croissant
                     # GPU monitor
-                    nvtopPackages.full
+                    # nvtopPackages.full
                     ] ++ [
                     (pkgs-python.packages.x86_64-linux."3.7.17".withPackages 
                     (ps: with ps; [
