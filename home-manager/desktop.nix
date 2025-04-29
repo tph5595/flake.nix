@@ -2,7 +2,6 @@
 {
         imports = [
             ./modules/conference.nix
-            ./modules/kitty.nix
             ./modules/wayland_apps.nix
             ./modules/dropbox.nix
         ];
@@ -66,7 +65,7 @@
                     # Chess
                     en-croissant
                     # GPU monitor
-                    # nvtopPackages.full
+                    nvtopPackages.amd
                     ] ++ [
                     (pkgs-python.packages.x86_64-linux."3.7.17".withPackages 
                     (ps: with ps; [

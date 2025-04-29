@@ -2,7 +2,7 @@
 {
     nixpkgs.overlays = [
         (self: super: {
-         zoom-us = pkgs-unstable.zoom-us;
+             zoom-us = pkgs-unstable.zoom-us;
          })
     ];
     home.packages = with pkgs; [

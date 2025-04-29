@@ -6,6 +6,7 @@
         ./modules/nvim.nix
         ./modules/tmux.nix
         ./modules/direnv.nix
+        ./modules/kitty.nix
     ];
     # Don't change this when you change package input. Leave it alone.
     home.stateVersion = "23.11";
