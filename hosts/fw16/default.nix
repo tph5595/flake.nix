@@ -19,6 +19,11 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # Saftey boot to root shell
+  # DO NOT ENABLE PERMENENTLY!!! ONLY FOR IMMEDIATE REPAIRS 
+  # Gives root shell without password
+  # boot.kernelParams = ["boot.shell_on_fail"];
+  # boot.loader.systemd-boot.consoleMode = "auto";
 
   looking-glass.enable = true;
   systemd.tmpfiles.rules = [
