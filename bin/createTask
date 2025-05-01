@@ -1,6 +1,6 @@
 #!/run/current-system/sw/bin/zsh
 
-pushd ~/Work
+pushd ~/Documents/Work
 task=$(echo "" | /etc/profiles/per-user/taylor/bin/fuzzel --dmenu --dmenu --prompt="Task: " --lines=1)
 # Ensure task has a valid string
 if [ -n "${task}" ]; then

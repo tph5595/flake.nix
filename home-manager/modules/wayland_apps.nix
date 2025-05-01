@@ -83,4 +83,6 @@
     home.file.".local/bin/cmus_song".source = ../../bin/cmus_song;
     home.file.".local/bin/createTask".source = ../../bin/createTask;
     home.file.".local/bin/toggle_calc".source = ../../bin/toggle_calc;
+    home.file.".local/bin/tailscale_status".source = ../../bin/tailscale_status;
+    home.file.".local/bin/tailscale_toggle".source = ../../bin/tailscale_toggle;
 }

@@ -1,0 +1,9 @@
+#!/run/current-system/sw/bin/zsh
+
+STATUS=$(tailscale status | grep fw16 | rev | cut -d$' ' -f1 | rev)
+if [[ $STATUS == "-" ]]
+then 
+    echo 󰲀
+else
+    echo 󰲜
+fi
