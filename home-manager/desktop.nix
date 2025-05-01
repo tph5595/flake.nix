@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-python, ... }: 
+{ config, lib, pkgs, pkgs-unstable, pkgs-python, ... }: 
 {
         imports = [
             ./modules/conference.nix
@@ -17,8 +17,13 @@
 
             nixpkgs.config.permittedInsecurePackages = [
                 "electron-25.9.0"
-                "golden-cheetah-3.6"
             ];
+            nixpkgs.overlays = [
+                (self: super: {
+                 golden-cheetah = pkgs-unstable.golden-cheetah;
+                 })
+            ];
+
             systemd.user.startServices = "sd-switch";
 
             home.packages = with pkgs; [
@@ -49,7 +54,7 @@
                     # bitwig-studio
                     cmus
                     # Workout
-                    golden-cheetah-bin
+                    golden-cheetah
                     appimage-run
                     R
                     # rstudioWrapper.override{ 
