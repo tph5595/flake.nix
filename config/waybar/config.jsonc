@@ -178,8 +178,8 @@
         "max-length": 15,
         "interval": 10,
         "exec-if": "exit 0",
-        "exec": "tailscale_status fw16",
-        "on-click": "tailscale_toggle fw16",
+        "exec": "$HOME/.local/bin/tailscale_status fw16",
+        "on-click": "$HOME/.local/bin/tailscale_toggle fw16",
     },
     "custom/media": {
         "format": "{icon} {}",

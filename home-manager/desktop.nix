@@ -20,7 +20,7 @@
             ];
             nixpkgs.overlays = [
                 (self: super: {
-                 golden-cheetah = pkgs-unstable.golden-cheetah;
+                 golden-cheetah-bin = pkgs-unstable.golden-cheetah-bin;
                  })
             ];
 
@@ -54,7 +54,7 @@
                     # bitwig-studio
                     cmus
                     # Workout
-                    golden-cheetah
+                    golden-cheetah-bin
                     appimage-run
                     R
                     # rstudioWrapper.override{ 
