@@ -12,6 +12,8 @@
         slurp
         # Idle and lock
         # brightnessctl
+        # auth prompt
+        hyprpolkitagent
     ];
 
     services.hypridle = {
@@ -57,6 +59,11 @@
     };
     programs.hyprlock.enable = true;
 
+    # Notification daemon
+    services.dunst = {
+        enable = true;
+    };
+
 
     home.file."./.config/foot" = {
         source = ../../config/foot;
@@ -76,6 +83,10 @@
     };
     home.file."./.config/fuzzel" = {
         source = ../../config/fuzzel;
+        recursive = true;
+    };
+    home.file."./.config/dunst" = {
+        source = ../../config/dunst;
         recursive = true;
     };
 
