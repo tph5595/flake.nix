@@ -21,6 +21,8 @@
 
                 font-family = Hack Regular Nerd Font Complete Mono
                 font-size = ${config.ghostty.font_size}
+                cursor-style = block
+                shell-integration-features = no-cursor
 
                 quick-terminal-animation-duration = 0
                 resize-overlay = never
