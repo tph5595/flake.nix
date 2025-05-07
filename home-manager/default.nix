@@ -7,6 +7,7 @@
         ./modules/tmux.nix
         ./modules/direnv.nix
         ./modules/kitty.nix
+        ./modules/ghostty.nix
     ];
     # Don't change this when you change package input. Leave it alone.
     home.stateVersion = "23.11";
@@ -22,6 +23,7 @@
             # General
             glances
             htop
+            btop
             zenith
             ripgrep
             fd
@@ -35,4 +37,5 @@
     home.sessionVariables = {
         CLICLOLOR = 1;
     };
+
 }
