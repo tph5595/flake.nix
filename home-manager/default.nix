@@ -37,5 +37,11 @@
     home.sessionVariables = {
         CLICLOLOR = 1;
     };
+        home.file."./.config/glances/glances.conf" = {
+            text = ''
+                [global]
+                check_update=false
+            '';
+        };
 
 }
