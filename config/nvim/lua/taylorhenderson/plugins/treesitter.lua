@@ -1,11 +1,13 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = 'main',
         -- build = "TSUpdate",
         config = function ()
-            local ts_update = require("nvim-treesitter.install").update({auto_update = true})
-            ts_update()
-            require'nvim-treesitter.configs'.setup {
+            -- local ts_update = require("nvim-treesitter.install").update({auto_update = true})
+            -- ts_update()
+            require("nvim-treesitter.install").update()
+            require'nvim-treesitter'.setup {
                 -- A list of parser names, or "all" (the five listed parsers should always be installed)
                 ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "python", "latex" },
 

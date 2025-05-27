@@ -14,7 +14,7 @@
 
   docker.enable = true;
   vm.enable = true;
-  k3s.enable = true;
+  k3s.enable = false;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
