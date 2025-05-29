@@ -24,6 +24,8 @@
                 cursor-style = block
                 shell-integration-features = no-cursor
 
+                confirm-close-surface = false
+
                 quick-terminal-animation-duration = 0
                 resize-overlay = never
             '';
