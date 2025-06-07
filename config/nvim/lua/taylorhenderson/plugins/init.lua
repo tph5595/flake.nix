@@ -28,6 +28,7 @@ return {
     },
     {
         'j-hui/fidget.nvim',
+        event = "VeryLazy",
         config = function()
             require("fidget").setup({})
         end
@@ -62,15 +63,18 @@ return {
     },
     {
         "NoahTheDuke/vim-just",
+        event = "VeryLazy",
         ft = { "just" },
     },
     {
         'MeanderingProgrammer/render-markdown.nvim',
+        event = "VeryLazy",
         ft = { "markdown" },
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
         opts = {},
     },
     {
-        "ThePrimeagen/vim-be-good"
+        "ThePrimeagen/vim-be-good",
+        event = "VeryLazy",
     },
 }

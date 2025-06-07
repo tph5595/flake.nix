@@ -14,7 +14,7 @@
 
   docker.enable = true;
   vm.enable = true;
-  k3s.enable = true;
+  k3s.enable = false;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -98,7 +98,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio = {
+  services.pulseaudio = {
       enable = false;
       # package = pkgs.pulseaudioFull;
   };
@@ -187,6 +187,6 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   fonts.packages = with pkgs; [
-  (nerdfonts.override { fonts = [ "Hack" ]; })
-];
+      nerd-fonts.hack
+  ];
 }
