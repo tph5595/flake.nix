@@ -75,7 +75,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -121,6 +121,6 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   fonts.packages = with pkgs; [
-  (nerdfonts.override { fonts = [ "Hack" ]; })
-];
+      nerd-fonts.hack
+  ];
 }
