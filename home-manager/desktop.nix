@@ -4,6 +4,7 @@
             ./modules/conference.nix
             ./modules/wayland_apps.nix
             ./modules/dropbox.nix
+            ./modules/music.nix
         ];
 
         config = {

@@ -24,6 +24,9 @@
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
     nixpkgs-python.url = "github:cachix/nixpkgs-python";
+
+    # Real-time audio in NixOS
+    musnix  = { url = "github:musnix/musnix"; };
   };
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, nixGL, nixos-hardware, nixpkgs-python, ... }: rec {
       legacyPackages = nixpkgs.lib.genAttrs [ "x86_64-linux" "x86_64-darwin" ]
@@ -43,6 +46,7 @@
 	desktop = nixpkgs.lib.nixosSystem rec {
 		  system = "x86_64-linux";
 		  modules = [ 
+              inputs.musnix.nixosModules.musnix
 		      ./hosts/desktop
 		      home-manager.nixosModules.home-manager
 		      {
@@ -61,6 +65,7 @@
                   ];
 		      }
 		  ];
+          specialArgs = { inherit inputs; };
 	      };
 	fw16 = nixpkgs.lib.nixosSystem rec {
 		  system = "x86_64-linux";
