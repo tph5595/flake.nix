@@ -9,5 +9,7 @@
 
         # DAW
         bitwig-studio4
+        # Tuner
+        lingot
     ];
 }
