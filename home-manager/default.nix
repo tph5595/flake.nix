@@ -33,6 +33,7 @@
             just
             zstd
             delta
+            bluetui
             ];
 
     home.sessionVariables = {
