@@ -22,6 +22,7 @@
     programs.git = {
         enable = true;
         lfs.enable = true;
+        delta.enable = true;
         userName  = "Taylor Henderson";
         userEmail = "tph5595@verizon.net";
         signing = {

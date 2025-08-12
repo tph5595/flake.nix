@@ -32,6 +32,7 @@
             bat
             just
             zstd
+            delta
             ];
 
     home.sessionVariables = {
