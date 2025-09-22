@@ -23,11 +23,10 @@ return {
                 -- },
                 handlers = {
                     function (server_name)
-                        require("lspconfig")[server_name].setup{}
+                        vim.lsp.config(server_name, {})
                     end,
                     ["lua_ls"] = function ()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.lua_ls.setup {
+                        vim.lsp.config("lua_ls", {
                             settings = {
                                 Lua = {
                                     diagnostics = {
@@ -35,24 +34,32 @@ return {
                                     }
                                 }
                             }
-                        }
+                        })
+                        vim.lsp.enable("lua_ls")
                     end,
                 }
             }
 
             -- OCaml
-            require("lspconfig").ocamllsp.setup {}
+            vim.lsp.config("ocamllsp", {})
+            vim.lsp.enable("ocamllsp")
             -- Python
-            require("lspconfig").pylsp.setup {}
-            require("lspconfig").ruff.setup {}
+            vim.lsp.config("pylsp", {})
+            vim.lsp.enable("pylsp")
+            vim.lsp.config("ruff", {})
+            vim.lsp.enable("ruff")
             -- Latex/Markdown
-            require("lspconfig").ltex.setup {}
-            require("lspconfig").texlab.setup {}
-            require("lspconfig").marksman.setup {}
+            vim.lsp.config("ltex", {})
+            vim.lsp.enable("ltex")
+            vim.lsp.config("texlab", {})
+            vim.lsp.enable("texlab")
+            vim.lsp.config("marksman", {})
+            vim.lsp.enable("marksman")
             -- Rust
-            require("lspconfig").rust_analyzer.setup {}
+            vim.lsp.config("rust_analyzer", {})
+            vim.lsp.enable("rust_analyzer")
             -- Lua
-            require("lspconfig").lua_ls.setup {
+            vim.lsp.config("lua_ls", {
                 settings = {
                     Lua = {
                         diagnostics = {
@@ -60,7 +67,8 @@ return {
                         }
                     }
                 }
-            }
+            })
+            vim.lsp.enable("lua_ls")
 
             local cmp = require("cmp")
             local cmp_select = {behavior = cmp.SelectBehavior.Select}
