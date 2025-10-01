@@ -21,9 +21,17 @@
             nixpkgs.config.permittedInsecurePackages = [
                 "electron-25.9.0"
             ];
+
             nixpkgs.overlays = [
                 (self: super: {
                  golden-cheetah-bin = pkgs-unstable.golden-cheetah-bin;
+                 })
+                (self: super: {
+                 en-croissant = super.en-croissant.overrideAttrs (oldAttrs: {
+                         postInstall = (oldAttrs.postInstall or "") + ''
+                         wrapProgram $out/bin/en-croissant --set WEBKIT_DISABLE_DMABUF_RENDERER 1
+                         '';
+                         });
                  })
             ];
 
