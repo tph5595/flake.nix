@@ -10,7 +10,7 @@
     };
 
     nix.extraOptions = ''
-        ssl-cert-file = /Users/hendetp1/root-cert.cer
+        ssl-cert-file = /etc/ssl/certs/cacert-bundle.crt
         '';
-    security.pki.certificateFiles = ["/Users/hendetp1/root-cert.cer"];
+    security.pki.certificateFiles = ["/etc/ssl/certs/cacert-bundle.crt"];
 }

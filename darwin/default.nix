@@ -13,10 +13,10 @@
     };
     config = lib.mkIf config.darwin.enable {
         # here go the darwin preferences and config items
+	system.primaryUser = "hendetp1";
         programs.zsh.enable = true;
         environment = {
             shells = with pkgs; [ bash zsh ];
-            loginShell = pkgs.zsh;
             systemPackages = [ pkgs.coreutils-full ];
             pathsToLink = [ "/Applications" ];
         };
@@ -25,20 +25,31 @@
             '';
         system.keyboard.enableKeyMapping = true;
         # system.keyboard.remapCapsLockToEscape = true;
-        fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Hack" ]; }) ];
-        services.nix-daemon.enable = true;
+        #fonts.packages = [pkgs.nerd-fonts.hack];
         system.defaults = {
             dock.autohide = true;
             finder.AppleShowAllExtensions = true;
             NSGlobalDomain.AppleShowAllExtensions = true;
         };
         # backwards compat; don't change
-        system.stateVersion = 4;
-        users.users.taylor = {
+        system.stateVersion = 6;
+        users.users.hendetp1 = {
             name = config.darwin.user;
-            home = "/Users/${config.darwin.user}";
+            home = "/Users/hendetp1";
         };
         # Enable TouchID as valid password source
-        security.pam.enableSudoTouchIdAuth = config.darwin.touch-id;
+	security.pam.services.sudo_local.touchIdAuth = config.darwin.touch-id;
     };
 }
+
+
+
+
+
+
+
+
+
+
+
+

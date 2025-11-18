@@ -1,15 +1,15 @@
 {
   description = "Taylor's Nix configuration";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Manages configs links things into your home directory
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Controls MacOS system level software and settings including fonts
-    darwin.url = "github:lnl7/nix-darwin";
+    darwin.url = "github:nix-darwin/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Share secrets 
@@ -29,7 +29,7 @@
     musnix  = { url = "github:musnix/musnix"; };
   };
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, nixGL, nixos-hardware, nixpkgs-python, ... }: rec {
-      legacyPackages = nixpkgs.lib.genAttrs [ "x86_64-linux" "x86_64-darwin" ]
+      legacyPackages = nixpkgs.lib.genAttrs [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin"]
       (system:
         import inputs.nixpkgs {
           inherit system;
@@ -93,7 +93,7 @@
 	};
       darwinConfigurations.BestBox = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
-          pkgs = legacyPackages.x86_64-darwin;
+          pkgs = nixpkgs-unstable.x86_64-darwin;
           modules = [
               ./hosts/BestBox
                   home-manager.darwinModules.home-manager
@@ -114,9 +114,9 @@
               }
           ];
       };
-      darwinConfigurations.slimDev = darwin.lib.darwinSystem rec {
-          system = "x86_64-darwin";
-          pkgs = legacyPackages.x86_64-darwin;
+      darwinConfigurations."LV72G447MG-ML" = darwin.lib.darwinSystem rec {
+          system = "aarch64-darwin";
+          pkgs = legacyPackages.aarch64-darwin;
           modules = [
               ./hosts/slimDev
                   home-manager.darwinModules.home-manager

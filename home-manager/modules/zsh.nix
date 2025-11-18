@@ -10,8 +10,8 @@
         autosuggestion.enable = false;
         syntaxHighlighting.enable = true;
         autocd = false;
-        initContent = 
-            let topofzshrc = lib.mkBefore ''
+        initContent = let 
+        	topofzshrc = lib.mkOrder 500 ''
                 bindkey -v
                 bindkey -s ^f "~/.local/bin/tmux-sessionizer\n"
                 bindkey "^H" backward-delete-char
@@ -28,7 +28,7 @@
                     source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
                 fi
             ''; 
-            generalzshrc = ''
+            generalzshrc = lib.mkOrder 1000 ''
                 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
                 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -42,8 +42,9 @@
                 # fi
                 cd $HOME
 
-                export LD_LIBRARY_PATH=${pkgs.libGL}/lib/
-                ''; 
+		'';
+                # export LD_LIBRARY_PATH=${pkgs.libGL}/lib/
+
             in lib.mkMerge [ topofzshrc generalzshrc];
         envExtra = ''
             EDITOR=nvim

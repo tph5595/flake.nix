@@ -5,9 +5,8 @@
     home.packages = with pkgs; [
         pinentry_mac
     ];
+    home.homeDirectory = "/Users/hendetp1";
     home.sessionVariables = {
         BROWSER = "librewolf";
     };
-
-    programs.zsh.shellAliases.nixswitch = "darwin-rebuild switch --flake ~/flake.nix/.#slimDev";
 }

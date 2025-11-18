@@ -33,7 +33,7 @@
             just
             zstd
             delta
-            bluetui
+            # bluetui not supported on mac
             ];
 
     home.sessionVariables = {
