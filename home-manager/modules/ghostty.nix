@@ -3,6 +3,8 @@
     options = {
         ghostty.enable = 
             lib.mkEnableOption "enables ghostty";
+        ghostty.no_pkg = 
+            lib.mkEnableOption "Disables installing the pkg. Needed for darwin";
         ghostty.font_size = 
             lib.mkOption {
                 type = with lib.types; str;
@@ -11,8 +13,8 @@
             };
     };
     config = lib.mkIf config.ghostty.enable {
-        home.packages = with pkgs; 
-        [ ghostty ];
+        # home.packages = with pkgs; 
+        #     [ ghostty ];
 
         home.file."./.config/ghostty/config" = {
             text = ''

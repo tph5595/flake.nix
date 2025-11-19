@@ -7,6 +7,8 @@
     ];
     home.homeDirectory = "/Users/hendetp1";
     home.sessionVariables = {
-        BROWSER = "librewolf";
+        BROWSER = "firefox";
     };
+    ghostty.enable = true;
+    programs.zsh.shellAliases.nixswitch = "sudo darwin-rebuild switch --flake ~/flake.nix/.#LV72G447MG-ML";
 }

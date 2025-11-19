@@ -25,7 +25,7 @@
             '';
         system.keyboard.enableKeyMapping = true;
         # system.keyboard.remapCapsLockToEscape = true;
-        #fonts.packages = [pkgs.nerd-fonts.hack];
+        fonts.packages = [pkgs.nerd-fonts.hack];
         system.defaults = {
             dock.autohide = true;
             finder.AppleShowAllExtensions = true;
