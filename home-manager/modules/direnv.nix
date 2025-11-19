@@ -10,9 +10,10 @@ in
 
     programs = {
         direnv = {
-          enable = false;
-          enableZshIntegration = false;
-          nix-direnv.enable = false;
+          enable = true;
+          enableZshIntegration = true;
+          enableFishIntegration = false;
+          nix-direnv.enable = true;
         };
     };
 }
