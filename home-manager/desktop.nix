@@ -46,7 +46,8 @@
                     obsidian
                     openvpn
                     anki
-                    firefox-wayland
+                    # firefox-wayland
+                    firefox
                     librewolf
                     pavucontrol # audio control gui
                     qalculate-qt
@@ -74,13 +75,13 @@
                     #         ggplot2 dplyr xts 
                     #     ]; 
                     # }
-                    pinentry
+                    pinentry-curses
                     # gui network manager
                     networkmanagerapplet
                     # ebook manager
                     calibre
                     # Chess
-                    en-croissant
+                    # en-croissant BROKEN??
                     # GPU monitor
                     nvtopPackages.amd
                     ] ++ [

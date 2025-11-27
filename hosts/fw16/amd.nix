@@ -5,16 +5,16 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-        amdvlk
+            # amdvlk
             libva
             libvdpau
             libvdpau-va-gl
-            vaapiVdpau
+            libva-vdpau-driver
             rocmPackages.clr.icd
     ];
-    extraPackages32 = [
-        pkgs.driversi686Linux.amdvlk
-    ];
+    # extraPackages32 = [
+    #     pkgs.driversi686Linux.amdvlk
+    # ];
   };
 
   services.xserver.videoDrivers = ["amdgpu"];
