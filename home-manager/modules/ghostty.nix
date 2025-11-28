@@ -13,12 +13,12 @@
             };
     };
     config = lib.mkIf config.ghostty.enable {
-        # home.packages = with pkgs; 
-        #     [ ghostty ];
+        home.packages = with pkgs; 
+            [ ghostty ];
 
         home.file."./.config/ghostty/config" = {
             text = ''
-                theme = rose-pine
+                theme = Rose Pine
                 background-opacity = 0.9
 
                 font-family = Hack Regular Nerd Font Complete Mono
