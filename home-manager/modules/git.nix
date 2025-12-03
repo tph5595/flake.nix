@@ -31,31 +31,39 @@
                 condition = "gitdir:~/flake.nix";
                 contents = {
                     user.email = "tph5595@verizon.net";
+
+                    # Sign all commits using ssh key
+                    commit.gpgsign = true;
+                    gpg.format = "ssh";
                     user.signingkey = "~/.ssh/github.pub";
+
+                    credential.helper = "${
+                        pkgs.git.override { withLibsecret = true; }
+                    }/bin/git-credential-libsecret";
                 };
             }
             {
                 condition = "gitdir:~/repos";
                 contents = {
                     user.email = "taylor.henderson@jhuapl.edu";
+
+                    # Sign all commits using ssh key
+                    commit.gpgsign = true;
+                    gpg.format = "ssh";
                     user.signingkey = "~/.ssh/git.work.pub";
+
+                    credential.helper = "${
+                        pkgs.git.override { withLibsecret = true; }
+                    }/bin/git-credential-libsecret";
                 };
             }
         ];
         settings = {
             user.name  = "Taylor Henderson";
-
-            # Sign all commits using ssh key
-            commit.gpgsign = true;
-            gpg.format = "ssh";
-
-            credential.helper = "${
-                pkgs.git.override { withLibsecret = true; }
-            }/bin/git-credential-libsecret";
         };
-        signing = {
-            signByDefault = true;
-            # key = "E9857FBDFC23A621";
-        };
+        # signing = {
+        #     signByDefault = true;
+        #     key = "E9857FBDFC23A621";
+        # };
     };
 }
