@@ -9,6 +9,6 @@
     home.sessionVariables = {
         BROWSER = "firefox";
     };
-    ghostty.enable = true;
+    ghostty.enable = false;
     programs.zsh.shellAliases.nixswitch = "sudo darwin-rebuild switch --flake ~/flake.nix/.#LV72G447MG-ML";
 }
