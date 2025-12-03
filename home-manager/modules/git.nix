@@ -1,4 +1,16 @@
 { pkgs, lib, config, ... }: 
+let personal_git = {
+    user.email = "tph5595@verizon.net";
+
+    # Sign all commits using ssh key
+    commit.gpgsign = true;
+    gpg.format = "ssh";
+    user.signingkey = "~/.ssh/github.pub";
+
+    credential.helper = "${
+        pkgs.git.override { withLibsecret = true; }
+    }/bin/git-credential-libsecret";
+}; in 
 {
     programs.ssh = {
         enable = true;
@@ -29,21 +41,14 @@
         includes = [
             {
                 condition = "gitdir:~/flake.nix";
-                contents = {
-                    user.email = "tph5595@verizon.net";
-
-                    # Sign all commits using ssh key
-                    commit.gpgsign = true;
-                    gpg.format = "ssh";
-                    user.signingkey = "~/.ssh/github.pub";
-
-                    credential.helper = "${
-                        pkgs.git.override { withLibsecret = true; }
-                    }/bin/git-credential-libsecret";
-                };
+                contents = personal_git;
             }
             {
-                condition = "gitdir:~/repos";
+                condition = "gitdir:~/personal/";
+                contents = personal_git;
+            }
+            {
+                condition = "gitdir:~/Documents/";
                 contents = {
                     user.email = "taylor.henderson@jhuapl.edu";
 
