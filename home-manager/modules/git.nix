@@ -26,14 +26,28 @@
     programs.git = {
         enable = true;
         lfs.enable = true;
+        includes = [
+            {
+                condition = "gitdir:~/flake.nix";
+                contents = {
+                    user.email = "tph5595@verizon.net";
+                    user.signingkey = "~/.ssh/github.pub";
+                };
+            }
+            {
+                condition = "gitdir:~/repos";
+                contents = {
+                    user.email = "taylor.henderson@jhuapl.edu";
+                    user.signingkey = "~/.ssh/git.work.pub";
+                };
+            }
+        ];
         settings = {
             user.name  = "Taylor Henderson";
-            user.email = "tph5595@verizon.net";
 
             # Sign all commits using ssh key
             commit.gpgsign = true;
             gpg.format = "ssh";
-            user.signingkey = "~/.ssh/github.pub";
 
             credential.helper = "${
                 pkgs.git.override { withLibsecret = true; }
@@ -41,7 +55,7 @@
         };
         signing = {
             signByDefault = true;
-            key = "E9857FBDFC23A621";
+            # key = "E9857FBDFC23A621";
         };
     };
 }
