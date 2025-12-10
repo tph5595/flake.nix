@@ -36,6 +36,7 @@
         users.users.hendetp1 = {
             name = config.darwin.user;
             home = "/Users/hendetp1";
+            uid = 501;
         };
         # Enable TouchID as valid password source
 	security.pam.services.sudo_local.touchIdAuth = config.darwin.touch-id;

@@ -77,4 +77,12 @@ return {
         "ThePrimeagen/vim-be-good",
         event = "VeryLazy",
     },
+    {
+        "ThePrimeagen/vim-be-good",
+        event = "VeryLazy",
+    },
+    {
+        "codota/tabnine-nvim",
+         build = "./dl_binaries.sh " .. "https://tabnine.jhuapl.edu" .. "/update",
+    },
 }

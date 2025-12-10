@@ -6,7 +6,7 @@
     darwin = { 
         enable = true;
         user = "hendetp1";
-        touch-id = true;
+        # touch-id = true;
     };
 
     nix.extraOptions = ''
