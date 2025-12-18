@@ -48,6 +48,15 @@ return {
             vim.lsp.enable("pylsp")
             vim.lsp.config("ruff", {})
             vim.lsp.enable("ruff")
+            vim.lsp.config("ty", {
+                settings = {
+                    ty = {
+                        -- pylsp is used for general LSP cases
+                        -- ty is just for type checking
+                        disableLanguageServices = true,
+                    }
+                }})
+            vim.lsp.enable("ty")
             -- Latex/Markdown
             vim.lsp.config("ltex", {})
             vim.lsp.enable("ltex")
