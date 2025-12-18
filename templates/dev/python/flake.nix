@@ -1,5 +1,5 @@
 {
-  description = "Example Python development environment for Zero to Nix";
+  description = "Taylor's Python development environment";
 
   inputs = {
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*.tar.gz";
@@ -41,6 +41,7 @@
               ]))
             ] ++ [
                 pkgs-unstable.uv
+                pkgs-unstable.ty
             ];
           };
       });
