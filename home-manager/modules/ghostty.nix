@@ -16,7 +16,7 @@
         home.packages = with pkgs; 
             [ ghostty ];
 
-        home.file."./.config/ghostty/config" = {
+        home.file.".config/ghostty/config" = {
             text = ''
                 theme = Rose Pine
                 background-opacity = 0.9
