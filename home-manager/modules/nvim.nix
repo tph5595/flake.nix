@@ -24,7 +24,7 @@
         php83Packages.composer
         cargo
         rustc
-        python310Packages.virtualenv
+        python314Packages.virtualenv
         lua-language-server
     ];
 
