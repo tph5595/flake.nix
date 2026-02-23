@@ -84,6 +84,9 @@ return {
     {
         "codota/tabnine-nvim",
          build = "./dl_binaries.sh https://tabnine.jhuapl.edu/update",
+         keys = {
+             { "<leader>c", "<cmd>TabnineChat<cr><cmd>TabnineToggle<cr>", desc = "Tabnine toggle" },
+         },
          config = function ()
              require('tabnine').setup({
                  disable_auto_comment=true,
