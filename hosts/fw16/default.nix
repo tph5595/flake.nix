@@ -25,10 +25,10 @@
   # boot.kernelParams = ["boot.shell_on_fail"];
   # boot.loader.systemd-boot.consoleMode = "auto";
 
-  looking-glass.enable = true;
-  systemd.tmpfiles.rules = [
-      "f /dev/shm/looking-glass 0660 codemichael qemu-libvirtd -"
-  ];
+  # looking-glass.enable = true;
+  # systemd.tmpfiles.rules = [
+  #     "f /dev/shm/looking-glass 0660 codemichael qemu-libvirtd -"
+  # ];
   environment.systemPackages = with pkgs; [
       linuxPackages.kvmfr
       looking-glass-client
@@ -152,7 +152,7 @@
   programs.ssh.askPassword = "";
   services.tailscale.enable = true;
 
-  programs.light.enable = true;
+  # programs.light.enable = true;
   services.actkbd = {
     enable = true;
     bindings = [

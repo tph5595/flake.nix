@@ -34,7 +34,7 @@
                     # GUI Apps
                     foot
                     fuzzel
-                    (nixGL teams-for-linux)
+                    # (nixGL teams-for-linux)
                     # Does not work on wayland for now
                     obsidian
                     openvpn
