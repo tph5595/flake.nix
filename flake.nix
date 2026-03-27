@@ -1,15 +1,15 @@
 {
   description = "Taylor's Nix configuration";
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Manages configs links things into your home directory
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Controls MacOS system level software and settings including fonts
-    darwin.url = "github:nix-darwin/nix-darwin";
+    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Share secrets 
