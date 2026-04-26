@@ -5,11 +5,13 @@
     imports = [
       self.nixosModules.fw16HardwareConfiguration
       # ../../../modules_old
+      self.nixosModules.docker
+      self.nixosModules.vm
+      self.nixosModules.hyprland
       self.nixosModules.amd
       self.nixosModules.taylorHome
+      self.nixosModules.desktopHome
     ];
-  # docker.enable = true;
-  # vm.enable = true;
   # k3s.enable = false;
 
   # Bootloader.
