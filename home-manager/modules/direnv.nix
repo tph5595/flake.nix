@@ -12,7 +12,7 @@ in
         direnv = {
           enable = true;
           enableZshIntegration = true;
-          enableFishIntegration = false;
+          enableFishIntegration = true;
           nix-direnv.enable = true;
         };
     };

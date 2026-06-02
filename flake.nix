@@ -1,15 +1,15 @@
 {
   description = "Taylor's Nix configuration";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Manages configs links things into your home directory
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Controls MacOS system level software and settings including fonts
-    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Share secrets 
@@ -27,6 +27,9 @@
 
     # Real-time audio in NixOS
     musnix  = { url = "github:musnix/musnix"; };
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
   };
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, nixGL, nixos-hardware, nixpkgs-python, ... }: rec {
       legacyPackages = nixpkgs.lib.genAttrs [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin"]
