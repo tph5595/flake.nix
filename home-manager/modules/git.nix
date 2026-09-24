@@ -13,8 +13,21 @@ let personal_git = {
 }; in 
 {
     programs.ssh = {
+        enableDefaultConfig = false;
         enable = true;
-        matchBlocks = {
+        settings = {
+            "*" = {
+                ForwardAgent = false;
+                AddKeysToAgent = "no";
+                Compression = false;
+                ServerAliveInterval = 0;
+                ServerAliveCountMax = 3;
+                HashKnownHosts = false;
+                UserKnownHostsFile = "~/.ssh/known_hosts";
+                ControlMaster = "no";
+                ControlPath = "~/.ssh/master-%r@%n:%p";
+                ControlPersist = "no";
+            };
             "github.com" = {
                 hostname = "github.com";
                 identityFile = "${config.home.homeDirectory}/.ssh/github";
